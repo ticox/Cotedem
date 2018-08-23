@@ -112,6 +112,9 @@
 
   <!-- Bootstrap CSS File -->
   <link href="<?php echo BASE_URL; ?>lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo BASE_URL; ?>public/css/alertify.bootstrap3.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo BASE_URL; ?>public/css/alertify.core.css" rel="stylesheet" type="text/css" /> 
+  <link href="<?php echo BASE_URL; ?>public/css/validationEngine.jquery.css" rel="stylesheet" type="text/css" /> 
 
   <!-- Libraries CSS Files -->
   <link href="<?php echo BASE_URL; ?>lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">

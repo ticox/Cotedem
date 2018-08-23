@@ -134,7 +134,10 @@
   <script src="<?php echo BASE_URL; ?>lib/touchSwipe/jquery.touchSwipe.min.js"></script>
 
   <!-- Contact Form JavaScript File -->
-  <script src="<?php echo BASE_URL; ?>contactform/contactform.js"></script>
+  <script src="<?php echo BASE_URL; ?>public/js/alertify.min.js" type="text/javascript"></script>
+<script src="<?php echo BASE_URL; ?>public/js/config.js" type="text/javascript"></script>
+<script src="<?php echo BASE_URL; ?>public/js/jquery.validationEngine.js" type="text/javascript"></script>
+<script src="<?php echo BASE_URL; ?>public/js/jquery.validationEngine-es.js" type="text/javascript"></script>
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
