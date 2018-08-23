@@ -57,44 +57,45 @@
 
           <div class="col-lg-3 col-md-6 footer-info">
             <h3>COTEDEM</h3>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+            <p>Somos una empresa ecuatoriana que proporciona soluciones tecnológicas integrales. Nuestra pasión es la tecnología y nuestra meta: optimizar la competitividad de las empresas que confían en nosotros.</p>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Links de interes</h4>
+            <h4>Otros Links</h4>
             <ul>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Inicio</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Nosotros</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Servicios</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Terminos de Servicio</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Politicas de Privacidad</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#intro">Inicio</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#about">Nosotros</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#services">Servicios</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#ubicacion">Ubicación</a></li>
+              <!-- <li><i class="ion-ios-arrow-right"></i> <a href="">Terminos de Servicio</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="">Politicas de Privacidad</a></li> -->
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contactanos</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br>
-              <strong>Telefono:</strong> +1 5589 55488 55<br>
-              <strong>Correo:</strong> Soporte@cotedem.com<br>
+              Ecuador - Quito, Pichincha <br>
+              Sancho Hacho N58-187 y Luis Tufiño<br>
+              <br>
+              <strong>Telefono:</strong> +593 99 257 3097<br>
+              <strong>Correo:</strong> info@cotedem.com<br>
             </p>
 
             <div class="social-links">
-              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+              <a href="javascript:null()" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="javascript:null()" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="javascript:null()" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="javascript:null()" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="javascript:null()" class="linkedin"><i class="fa fa-linkedin"></i></a>
             </div>
 
           </div>
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
-            <form action="" method="post">
+            <h4>Suscribase con nosotros</h4>
+            <p>Suscribase y reciba nuestras ofertas por correo electronico.</p>
+            <form  method="post">
               <input type="email" name="email"><input type="submit"  value="Subscribe">
             </form>
           </div>
