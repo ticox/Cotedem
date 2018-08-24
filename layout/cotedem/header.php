@@ -157,9 +157,16 @@
           <li><a id="menu-scroll" href="<?php echo BASE_URL; ?>#marcas">Marcas</a></li>
           <li><a id="menu-scroll" href="<?php echo BASE_URL; ?>#ubicacion">Ubicacion</a></li>
           
+          
           <li><a id="menu-scroll" href="#contact">Contactos</a></li>
+          <li class="menu-has-children"><a href="javascript:null()">Sistemas</a>
+                      <ul>
+                        <li><a href="https://cotedem.com/digidemo/web/">Sistema Digitalización</a></li>
+                        
+                      </ul>
+                    </li>
                 <?php if (session::get('autenticado')): ?>
-                        <li class="menu-has-children"><a href="">Bienvenido, <?php echo session::get('usuario'); ?></a>
+                        <li class="menu-has-children"><a href="javascript:null()">Bienvenido, <?php echo session::get('usuario'); ?></a>
                       <ul>
                         <li><a href="<?php echo BASE_URL; ?>recuperar/cambiar">Cambiar Clave</a></li>
                         <li><a href="<?php echo BASE_URL; ?>login/cerrar">Cerrar Sessión</a></li>
