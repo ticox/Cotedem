@@ -12,13 +12,16 @@ $( "#fecha_activo" ).datepicker({
 
 $(document).on("click", "#buscar_nosotros", function(){
 	
-		$.post(base_url + 'app/buscar_nosotros',
-			{
-			
-			},function(datos){
-				alert(datos);	
-	           },'json');
+		$.post(base_url + 'app/buscar_nosotros',function(datos){
+				var html="<center>Parrafos </center><textarea class='form-control'>"+datos.parrafo1+"</textarea></br>";
+				html+="<textarea class='form-control'>"+datos.parrafo2+"</textarea></br>";
+				html+="<textarea class='form-control'>"+datos.parrafo3+"</textarea></br>";
+				html+="<textarea class='form-control'>"+datos.parrafo4+"</textarea></br>";
+				html+="<textarea class='form-control'>"+datos.parrafo5+"</textarea></br>";
 
+				 $("#divnosotros").html("");
+				  $("#divnosotros").html(html);
+	           },'json');
 
 });
 

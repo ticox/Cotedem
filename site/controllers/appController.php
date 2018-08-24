@@ -72,7 +72,7 @@ class appController extends Controller
     public function buscar_nosotros(){
 
 
-    echo json_encode($this->_app->buscar_nosotros());
+    echo json_encode($this->app->buscar_nosotros());
 
 
    }
