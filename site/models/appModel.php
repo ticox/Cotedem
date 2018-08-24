@@ -7,6 +7,13 @@ class appModel extends Model
     }
 
     
+public function buscar_nosotros(){
+
+
+$sql ="select * from nosotros";
+$datos = $this->_db->query($sql);
+  return $datos->fetch();
+  }
 
 public function menu($id = false){
 

@@ -150,6 +150,7 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
+          <?php if (!session::get('autenticado')): ?>
           <li class="menu-active"><a href="<?php echo BASE_URL; ?>#intro">Home</a></li>
           <li><a id="menu-scroll" href="<?php echo BASE_URL; ?>#about">Nosotros</a></li>
           <li><a id="menu-scroll" href="<?php echo BASE_URL; ?>#services">Servicios</a></li>
@@ -165,6 +166,7 @@
                         
                       </ul>
                     </li>
+                    <?php endif; ?>
                 <?php if (session::get('autenticado')): ?>
                         <li class="menu-has-children"><a href="javascript:null()">Bienvenido, <?php echo session::get('usuario'); ?></a>
                       <ul>

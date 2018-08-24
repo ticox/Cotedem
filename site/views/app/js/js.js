@@ -6,42 +6,18 @@ $( "#fecha_activo" ).datepicker({
   dateFormat: 'yy-mm-dd'
 });
 
-$(document).on("change","#permisos_ch",function(){
-
-console.log("menu--"+this.dataset.menu);
-console.log("rol--"+this.dataset.rol);
-console.log(this.checked);
-
-
-$.get(base_url+"app/permisos_ch",{
-
-'menu'        : this.dataset.menu,
-'rol'         : this.dataset.rol,
-'estado'      : this.checked
-
-});
-
-
-
-});
 
 
 
 
-
-
-
-$(document).on("click", "#btn_actv", function(){
+$(document).on("click", "#buscar_nosotros", function(){
 	
-		$.post(base_url + 'app/updonw',
+		$.post(base_url + 'app/buscar_nosotros',
 			{
-
-			fecha: $("#fecha_activo").val(),
-			accion: accion
 			
-			},function(){
-				document.location=base_url+"app";		
-	           });
+			},function(datos){
+				alert(datos);	
+	           },'json');
 
 
 });

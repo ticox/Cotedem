@@ -121,8 +121,8 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JavaScript Libraries -->
-  
-  
+  <script src="<?php echo BASE_URL; ?>lib/jquery/jquery.min.js"></script>
+  <script src="<?php echo BASE_URL; ?>lib/jquery/jquery-migrate.min.js"></script>
   <script src="<?php echo BASE_URL; ?>lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="<?php echo BASE_URL; ?>lib/easing/easing.min.js"></script>
   <script src="<?php echo BASE_URL; ?>lib/superfish/hoverIntent.js"></script>
@@ -143,10 +143,6 @@
 <script src="<?php echo BASE_URL; ?>public/js/modalEffects.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/jquery-ui.js" type="text/javascript"></script>
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-
- <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
 
