@@ -1515,3 +1515,68 @@ body.mobile-nav-active #mobile-nav-toggle {
 .back_cambiar{
   background-color: #000;
 }
+
+.titulo-header h3 {
+    font-size: 20px;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.titulo-header h3::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #f00e26;
+    bottom: 0;
+    left: calc(50% - 20px);
+}
+
+.titulo-header h3::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 1px;
+    left: calc(50% - 60px);
+}
+
+
+.titulo-login h3 {
+    font-size: 20px;
+    color: #000;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.titulo-login h3::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #f00e26;
+    bottom: 0;
+    left: calc(50% - 20px);
+}
+
+.titulo-login h3::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #000;
+    bottom: 1px;
+    left: calc(50% - 60px);
+}

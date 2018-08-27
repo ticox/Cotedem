@@ -6,6 +6,14 @@ class appModel extends Model
         parent::__construct();
     }
 
+
+ public function guardar_usuario($datos){
+
+ $sql="INSERT INTO usuario values ('','1','".$datos['usuario']."' ,'" . Hash::getHash('sha1', $datos['clave'], HASH_KEY) ."','1')";
+        $this->_db->query($sql);
+   }
+
+
     
 public function buscar_nosotros(){
 
@@ -14,6 +22,59 @@ $sql ="select * from nosotros";
 $datos = $this->_db->query($sql);
   return $datos->fetch();
   }
+
+
+  public function guardar_nosotros($datos){
+
+   echo $sql ="update nosotros SET parrafo1='".$datos['parrafo1']."' ,`parrafo2`='".$datos['parrafo2']."',parrafo3='".$datos['parrafo3']."',parrafo4='".$datos['parrafo4']."',parrafo5='".$datos['parrafo5']."' WHERE id_nosotros= '".$datos['id']."'";
+
+     $this->_db->query($sql);
+   }
+
+
+   public function buscar_informacion(){
+
+
+$sql ="select * from informacion";
+$datos = $this->_db->query($sql);
+  return $datos->fetch();
+  }
+
+
+  public function guardar_mision($datos){
+
+   echo $sql ="update informacion SET mision='".$datos['mision']."' WHERE id_informacion= '".$datos['id']."'";
+
+     $this->_db->query($sql);
+   }
+
+
+  public function guardar_vision($datos){
+
+   echo $sql ="update informacion SET vision='".$datos['vision']."' WHERE id_informacion= '".$datos['id']."'";
+
+     $this->_db->query($sql);
+   }
+
+
+    public function guardar_preview($datos){
+
+   echo $sql ="update informacion SET preview='".$datos['preview']."' WHERE id_informacion= '".$datos['id']."'";
+
+     $this->_db->query($sql);
+   }
+
+
+   public function guardar_titulo($datos){
+
+   echo $sql ="update informacion SET titulo='".$datos['titulo']."' WHERE id_informacion= '".$datos['id']."'";
+
+     $this->_db->query($sql);
+   }
+
+
+
+   /*----------- datos viejos --------------*/
 
 public function menu($id = false){
 

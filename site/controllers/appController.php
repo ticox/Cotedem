@@ -69,6 +69,15 @@ class appController extends Controller
 
     }
 
+
+     public function guardar_usuario(){
+
+
+        $this->app->guardar_usuario($_POST);
+
+
+   }
+
     public function buscar_nosotros(){
 
 
@@ -76,6 +85,66 @@ class appController extends Controller
 
 
    }
+
+
+     public function guardar_nosotros(){
+
+
+        $this->app->guardar_nosotros($_POST);
+
+
+   }
+
+
+   public function buscar_informacion(){
+
+
+    echo json_encode($this->app->buscar_informacion());
+
+
+   }
+
+
+    public function guardar_mision(){
+
+
+        $this->app->guardar_mision($_POST);
+
+
+   }
+
+
+    public function guardar_vision(){
+
+
+        $this->app->guardar_vision($_POST);
+
+
+   }
+
+
+    public function guardar_preview(){
+
+
+        $this->app->guardar_preview($_POST);
+
+
+   }
+
+
+    public function guardar_titulo(){
+
+
+        $this->app->guardar_titulo($_POST);
+
+
+   }
+
+
+
+
+
+
 
 
     

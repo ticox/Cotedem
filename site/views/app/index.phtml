@@ -24,15 +24,15 @@
                 </li>
                 <ul class="sub-menu collapse" id="products">
                     <li><a id="buscar_nosotros" data-toggle="modal" data-target="#nosotros">Nosotros</a></li>
-                    <li><a data-toggle="modal" data-target="#mision">Misión</a></li>
-                    <li><a data-toggle="modal" data-target="#vision">Visión</a></li>
-                    <li><a href="#">Preview</a></li>
-                    <li><a href="#">Titulo de inicio</a></li>
+                    <li><a id="buscar_mision" data-toggle="modal" data-target="#mision">Misión</a></li>
+                    <li><a id="buscar_vision" data-toggle="modal" data-target="#vision">Visión</a></li>
+                    <li><a id="buscar_preview" data-toggle="modal" data-target="#preview">Preview</a></li>
+                    <li><a id="buscar_titulo" data-toggle="modal" data-target="#titulo">Titulo de inicio</a></li>
                 </ul>
 
 
                 <li>
-                  <a href="#"><i class="fa fa-globe fa-lg"></i> Editar Servicios </a>
+                  <a id="editar_servicio"><i class="fa fa-globe fa-lg"></i> Editar Servicios </a>
                 </li>  
                 
 
@@ -54,14 +54,67 @@
                   </li>
 
                  <li>
-                  <a href="#">
+                  <a id="crear_usuarios">
                   <i class="fa fa-users fa-lg"></i> Crear Usuarios
                   </a>
                 </li>
             </ul>
      </div>
 </div>
-<div class="header-titulos col-md-8"> <center> <h4> PANEL DE ADMINISTRACION </h4> </center></div>
+<div class="titulo-header col-md-8"> <center> <h3> PANEL DE ADMINISTRACION </h3> </center></div>
+
+<div class="col-md-4"></div>
+<div class="col-md-5" id="div_usuario">
+<div class="col-md-12"><center> <h4> Crear Usuario </h4> </center></div>
+ <div class="form-group ">
+              <label class="control-label">Usuario</label>
+              
+                <input type="text" type="text" class="form-control" id="usuario" name="usuario" required="required">
+              
+          </div>
+          <div class="form-group">
+              <label class=" control-label">Contraseña</label>
+            
+                <input type="password" type="text" class="form-control" id="contraseña" name="contraseña" required="required">
+              
+          </div>
+          <div class="form-group ">
+              <label class=" control-label">Confirmar Contraseña</label>
+          
+                <input type="password" type="text" class="form-control" id="confirmar_contraseña" name="confirmar" required="required">
+              
+          </div>
+            <div class="form-group ">
+              <button id="crear_usuario" type="button" class="btn btn-primary btn-sm" disabled>Crear</button>
+              <button id="cancelar_crearusuario" type="button" class="btn btn-primary btn-sm">Cancelar</button>
+
+          </div>
+
+
+</div>
+
+<div class="col-md-5" id="div_servicio">
+<div class="col-md-12"><center> <h4> Editar Servicios </h4> </center></div>
+ <div class="form-group ">
+              <label class="control-label">Selecciona El servicio</label>
+              
+                <select class="form-control"> 
+
+                  <option>1</option>
+                   <option>2</option>
+                    <option>3</option>
+                     <option>4</option>
+                      <option>5</option>
+                       <option>6</option>
+                        <option>7</option>
+
+                </select>
+              
+          </div>
+          
+
+
+</div>
 
 
 
@@ -84,7 +137,7 @@
         <h3> <center> Cargando... </center></h3>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Guardar Cambios</button>
+        <button type="button" class="btn btn-primary" id="guardar_nosotros">Guardar Cambios</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
@@ -102,11 +155,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <textarea class="form-control" >Informacion de la pagina desde la base de datos</textarea>
+      <div class="modal-body" id="divmision">
+         <h3> <center> Cargando... </center></h3>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Guardar Cambios</button>
+        <button type="button" class="btn btn-primary" id="guardar_mision">Guardar Cambios</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
@@ -124,16 +177,62 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <textarea class="form-control">Informacion de la pagina desde la base de datos</textarea>
+      <div class="modal-body" id="divvision">
+        <h3> <center> Cargando... </center></h3>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Guardar Cambios</button>
+        <button type="button" class="btn btn-primary" id="guardar_vision">Guardar Cambios</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
 </div>
+
+
+<!-- Modal preview -->
+<div class="modal fade modalapp" id="preview" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Visión</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="divpreview">
+        <h3> <center> Cargando... </center></h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="guardar_preview">Guardar Cambios</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal titulo -->
+
+<div class="modal fade modalapp" id="titulo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Visión</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="divtitulo">
+        <h3> <center> Cargando... </center></h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="guardar_titulo">Guardar Cambios</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 
 
