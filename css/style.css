@@ -1507,3 +1507,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 13px;
   color: #ddd;
 }
+
+.vista_cambiar{
+  padding-top: 10%;
+}
+
+.back_cambiar{
+  background-color: #000;
+}
