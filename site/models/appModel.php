@@ -14,6 +14,14 @@ class appModel extends Model
    }
 
 
+
+ public function guardar_servicio($datos){
+
+ $sql="INSERT INTO servicios values ('','".$datos['titulo']."' ,'".$datos['descripcion']."')";
+        $this->_db->query($sql);
+   }
+
+
     
 public function buscar_nosotros(){
 

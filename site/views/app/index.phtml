@@ -37,21 +37,9 @@
                 
 
 
-                <li data-toggle="collapse" data-target="#new" class="collapsed">
-                  <a href="#"><i class="fa fa-car fa-lg"></i> Agregar Nuevo Servicio <span class="arrow"></span></a>
+                <li >
+                  <a data-toggle="modal" data-target="#servicio" servicio> <i class="fa fa-car fa-lg"></i> Agregar Nuevo Servicio </a>
                 </li>
-                <ul class="sub-menu collapse" id="new">
-                  <li>New New 1</li>
-                  <li>New New 2</li>
-                  <li>New New 3</li>
-                </ul>
-
-
-                 <li>
-                  <a href="#">
-                  <i class="fa fa-user fa-lg"></i> Profile
-                  </a>
-                  </li>
 
                  <li>
                   <a id="crear_usuarios">
@@ -96,7 +84,7 @@
 <div class="col-md-5" id="div_servicio">
 <div class="col-md-12"><center> <h4> Editar Servicios </h4> </center></div>
   <div class="form-group">
-  <label for="sel1">Select list:</label>
+  <label for="sel1">Seleccione:</label>
   <select class="form-control" id="sel1">
   </select>
 </div> 
@@ -183,7 +171,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Visión</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Preview</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -205,7 +193,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Visión</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Titulo</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -220,6 +208,42 @@
     </div>
   </div>
 </div>
+
+
+<!-- Nuevo Servicio -->
+
+<div class="modal fade modalapp" id="servicio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo Servicio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="nvoservicio">
+         <div class="form-group ">
+              <label class="control-label">Titulo</label>
+              
+                <input type="text" type="text" class="form-control" id="titulo_servicio" name="titulo_servicio" required="required">
+              
+          </div>
+
+          <div class="form-group ">
+              <label class="control-label">Descripción</label>
+              
+                <textarea  class="form-control" id="descripcion" required="required"> </textarea>
+              
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="guardar_servicio">Guardar Cambios</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 

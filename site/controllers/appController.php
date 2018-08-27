@@ -96,6 +96,18 @@ class appController extends Controller
    }
 
 
+    public function guardar_servicio(){
+
+
+        $this->app->guardar_servicio($_POST);
+
+
+   }
+
+
+
+
+
    public function buscar_informacion(){
 
 

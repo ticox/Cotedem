@@ -212,6 +212,33 @@ $(document).on('click', '#guardar_titulo', function()
 	});
 
 
+$(document).on('click', '#guardar_servicio', function() 
+	{
+	 		
+	 		alertify.confirm( "¿Esta realmente seguro de guardar este servicio?", function (e) {
+			    if (e) {
+			    	$.post(base_url+'app/guardar_servicio',{
+
+						titulo:$("#titulo_servicio").val(),
+						descripcion:$("#descripcion").val()
+
+						},function() {
+						alertify.success('Servicio guardado satisfactoriamente');
+					});
+			        
+			    } else {
+			       alertify.error('Ha cancelado la operación');
+			    }
+			});
+			
+		
+	});
+
+
+
+
+
+
 /*--------------------- Crear Usuarios ---------------------*/
 
 $(document).on("click", "#crear_usuarios", function(){
