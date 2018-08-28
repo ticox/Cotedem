@@ -18,9 +18,15 @@ class principalController extends Controller
 			
 			$this->_view->setJs(array('js'));
 			$this->_view->setCss(array('css'));
-        		$this->_view->titulo = 'EPS - principal';
-			$this->_view->renderizar('index');
-							
+        		$this->_view->titulo = 'COTEDEM';
+			
+
+ 			$this->_view->informacion=$this->_index->informacion();
+ 			$this->_view->nosotros=$this->_index->nosotros();
+   			$rs=$this->_index->servicios();
+			$this->_view->servicios = $rs;
+
+		$this->_view->renderizar('index');
 			
 	}
 

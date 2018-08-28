@@ -8,17 +8,36 @@ class principalModel extends Model
     
 
 
-public function numero_per(){
+public function informacion(){
 
-$sql="SELECT COUNT(*) as numero FROM `persona`";
+$sql="SELECT * FROM informacion";
 
  $datos=$this->_db->query($sql);
       
 return $datos->fetch();
 
+}
 
+public function nosotros(){
 
+ $sql="SELECT * FROM nosotros";
+
+ $datos=$this->_db->query($sql);
+      
+return $datos->fetch();
 
 }
+
+
+public function servicios(){
+
+ $sql="SELECT * FROM servicios";
+
+ $datos=$this->_db->query($sql);
+      
+return $datos->fetchall();
+
+}
+
 
 }?>

@@ -69,6 +69,42 @@ class appController extends Controller
 
     }
 
+     public function buscar_servicios(){
+
+
+    echo json_encode($this->app->buscar_servicios());
+
+
+   }
+
+   public function buscar_servicio(){
+
+
+    echo json_encode($this->app->buscar_servicio($_POST));
+
+
+   }
+
+    public function servicio_modificado(){
+
+
+    $this->app->servicio_modificado($_POST);
+
+
+   }
+
+
+   public function guardar_contactos(){
+
+
+    $this->app->guardar_contactos($_POST);
+
+
+   }
+
+
+
+
 
      public function guardar_usuario(){
 

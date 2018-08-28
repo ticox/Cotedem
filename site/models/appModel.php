@@ -22,6 +22,32 @@ class appModel extends Model
    }
 
 
+ public function buscar_servicios(){
+
+ $sql="SELECT * FROM servicios";
+       $datos = $this->_db->query($sql);
+        return $datos->fetchall();
+   }
+
+
+    public function buscar_servicio($datos){
+
+       $sql="SELECT * FROM servicios where id_servicio='".$datos['id']."'";
+       $datos = $this->_db->query($sql);
+        return $datos->fetch();
+
+   }
+
+
+public function servicio_modificado($datos){
+
+   echo $sql ="update servicios SET titulo='".$datos['titulo']."', descripcion='".$datos['descripcion']."'  WHERE id_servicio= '".$datos['id']."'";
+
+     $this->_db->query($sql);
+   }
+
+
+
     
 public function buscar_nosotros(){
 
@@ -38,6 +64,15 @@ $datos = $this->_db->query($sql);
 
      $this->_db->query($sql);
    }
+
+
+   public function guardar_contactos($datos){
+
+   echo $sql ="update informacion SET ciudad_provincia='".$datos['ciudad_provincia']."' ,`direccion`='".$datos['direccion']."',telefono='".$datos['telefono']."',correo='".$datos['correo']."' WHERE id_informacion= '".$datos['id']."'";
+
+     $this->_db->query($sql);
+   }
+
 
 
    public function buscar_informacion(){

@@ -1,6 +1,24 @@
 $(document).ready(function(){
 
 	var accion=0;
+	var cargar_servicios;
+
+
+function cargarservicios(){
+
+$.post(base_url+'app/buscar_servicios',function(datos) {
+					
+			 		for (var i=0; i < datos.length; i++) {
+			 			$('#modificar_servicio').append("<option data-toggle='modal' data-target='#mod_servicio' value="+datos[i].id_servicio+">"+datos[i].titulo+"</option>");
+			 		}
+
+
+					},'json');
+		
+
+}
+
+cargarservicios();
 
 $( "#fecha_activo" ).datepicker({
   dateFormat: 'yy-mm-dd'
@@ -49,6 +67,7 @@ $(document).on('click', '#guardar_nosotros', function()
 
 						},function() {
 						alertify.success('Modificacion relizada satisfactoriamente');
+						$("#nosotros .close").click();
 					});
 			        
 			    } else {
@@ -86,6 +105,7 @@ $(document).on('click', '#guardar_mision', function()
 
 						},function() {
 						alertify.success('Modificación relizada satisfactoriamente');
+						$("#mision .close").click();
 					});
 			        
 			    } else {
@@ -124,6 +144,7 @@ $(document).on('click', '#guardar_vision', function()
 
 						},function() {
 						alertify.success('Modificación relizada satisfactoriamente');
+						$("#vision .close").click();
 					});
 			        
 			    } else {
@@ -162,6 +183,7 @@ $(document).on('click', '#guardar_preview', function()
 
 						},function() {
 						alertify.success('Modificación relizada satisfactoriamente');
+						$("#preview .close").click();
 					});
 			        
 			    } else {
@@ -201,6 +223,7 @@ $(document).on('click', '#guardar_titulo', function()
 
 						},function() {
 						alertify.success('Modificación relizada satisfactoriamente');
+						$("#titulo .close").click();
 					});
 			        
 			    } else {
@@ -211,6 +234,56 @@ $(document).on('click', '#guardar_titulo', function()
 		
 	});
 
+
+/*--------------------- Modificar contactos ---------------------*/
+
+$(document).on("click", "#buscar_contactos", function(){
+	
+		$.post(base_url + 'app/buscar_informacion',function(datos){
+				var html="<center>Ciudad/Privincia </br></center><textarea id='ciudad_provincia' class='form-control'>"+datos.ciudad_provincia+"</textarea></br>";
+				html+="<center>Dirección </br></center><textarea id='direccion' class='form-control'>"+datos.direccion+"</textarea></br>";
+				html+="<center>Telefono </br></center><textarea id='telefono' class='form-control'>"+datos.telefono+"</textarea></br>";
+				html+="<center>Correo </br></center><textarea id='correo' class='form-control'>"+datos.correo+"</textarea></br>";
+				html+="<input type='hidden'id='id_informacion' value="+datos.id_informacion+"> </br>";
+
+				 $("#divcontactos").html("");
+				  $("#divcontactos").html(html);
+	           },'json');
+
+});
+
+
+$(document).on('click', '#guardar_contactos', function() 
+	{
+	 		
+	 		alertify.confirm( "¿Esta realmente seguro de modificar?", function (e) {
+			    if (e) {
+			    	$.post(base_url+'app/guardar_contactos',{
+
+						ciudad_provincia:$("#ciudad_provincia").val(),
+						direccion:$("#direccion").val(),
+						telefono:$("#telefono").val(),
+						correo:$("#correo").val(),
+						id:$("#id_informacion").val()
+
+						},function() {
+						alertify.success('Modificación relizada satisfactoriamente');
+						$("#contactos .close").click();
+					});
+			        
+			    } else {
+			       alertify.error('Ha cancelado la operación');
+			    }
+			});
+			
+		
+	});
+
+
+
+
+
+/*--------------------- Modulo de Servicios ---------------------*/
 
 $(document).on('click', '#guardar_servicio', function() 
 	{
@@ -224,6 +297,7 @@ $(document).on('click', '#guardar_servicio', function()
 
 						},function() {
 						alertify.success('Servicio guardado satisfactoriamente');
+						$("#servicio .close").click()
 					});
 			        
 			    } else {
@@ -233,6 +307,60 @@ $(document).on('click', '#guardar_servicio', function()
 			
 		
 	});
+
+
+
+$(document).on('change', '#modificar_servicio', function() 
+	{
+			 	$.post(base_url+'app/buscar_servicio',{
+
+						id:$("#modificar_servicio").val()
+
+
+			 	},function(datos) {
+						
+					 var html='<div class="form-group "><label class="control-label">Titulo</label>';
+		              
+		                 html+='<input type="text" type="text" class="form-control" id="t_servicio" name="titulo_servicio" value="'+datos.titulo+'" required="required"> </div>';
+		           		 html+='<div class="form-group "><label class="control-label">Descripción</label><textarea  class="form-control" id="d_servicio" required="required">'+datos.descripcion+'</textarea>';
+              			 html+='<input type="hidden" id="id_servicio" value="'+datos.id_servicio+'"></div>';
+          
+		           		 $("#mservicio").html("");
+				 		 $("#mservicio").html(html);
+
+					},'json');
+		
+		
+	});
+
+
+$(document).on('click', '#servicio_modificado', function() 
+	{
+	 		
+	 		alertify.confirm( "¿Esta realmente seguro de modificar este servicio?", function (e) {
+			    if (e) {
+			    	$.post(base_url+'app/servicio_modificado',{
+
+						titulo:$("#t_servicio").val(),
+						descripcion:$("#d_servicio").val(),
+						id:$("#id_servicio").val()
+
+						},function() {
+						alertify.success('Servicio modificado satisfactoriamente');
+						$("#modificar_servicio").empty();
+
+						$('#modificar_servicio').append("<option value=''> -> Seleccione <-</option>");
+						cargarservicios();
+					});
+			        
+			    } else {
+			       alertify.error('Ha cancelado la operación');
+			    }
+			});
+			
+		
+	});
+
 
 
 
@@ -253,6 +381,14 @@ $(document).on("click", "#cancelar_crearusuario", function(){
 	$('#div_usuario').hide(1500); //muestro mediante id
 
 });
+
+
+$(document).on("click", "#cancelar_mservicio", function(){
+
+	$('#div_servicio').hide(1500); //muestro mediante id
+
+});
+
 
 
 $("#confirmar_contraseña").focusout(function(){

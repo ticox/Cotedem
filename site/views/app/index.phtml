@@ -28,6 +28,7 @@
                     <li><a id="buscar_vision" data-toggle="modal" data-target="#vision">Visión</a></li>
                     <li><a id="buscar_preview" data-toggle="modal" data-target="#preview">Preview</a></li>
                     <li><a id="buscar_titulo" data-toggle="modal" data-target="#titulo">Titulo de inicio</a></li>
+                    <li><a id="buscar_contactos" data-toggle="modal" data-target="#contactos">Contactos</a></li>
                 </ul>
 
 
@@ -83,14 +84,17 @@
 
 <div class="col-md-5" id="div_servicio">
 <div class="col-md-12"><center> <h4> Editar Servicios </h4> </center></div>
-  <div class="form-group">
-  <label for="sel1">Seleccione:</label>
-  <select class="form-control" id="sel1">
-  </select>
-</div> 
+    <div class="form-group">
+    <label for="exampleFormControlSelect1">Seleccione el servicio a modificar</label>
+    <select class="form-control" id="modificar_servicio">
+      <option> -> Seleccione <- </option>
+      
+    </select>
+  </div>
           
-
-
+      <div class="form-group ">
+      <center><button id="cancelar_mservicio" type="button" class="btn btn-primary btn-sm">Candelar</button> </center>
+      </div>
 </div>
 
 
@@ -210,6 +214,29 @@
 </div>
 
 
+<!-- Modal contactos -->
+
+<div class="modal fade modalapp" id="contactos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Contactos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="divcontactos">
+        <h3> <center> Cargando... </center></h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="guardar_contactos">Guardar Cambios</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- Nuevo Servicio -->
 
 <div class="modal fade modalapp" id="servicio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -238,6 +265,30 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="guardar_servicio">Guardar Cambios</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modificar Servicio -->
+
+<div class="modal fade modalapp" id="mod_servicio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modificar Servicio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="mservicio">
+         <h3> <center> Cargando... </center></h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="servicio_modificado">Guardar Cambios</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
