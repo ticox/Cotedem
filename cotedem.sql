@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-08-2018 a las 18:18:47
+-- Tiempo de generación: 29-08-2018 a las 00:11:00
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `cotedem`
 --
+CREATE DATABASE IF NOT EXISTS `cotedem` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `cotedem`;
 
 -- --------------------------------------------------------
 
@@ -28,8 +30,8 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `informacion`
 --
 
-CREATE TABLE `informacion` (
-  `id_informacion` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `informacion` (
+  `id_informacion` int(11) NOT NULL AUTO_INCREMENT,
   `mision` varchar(1000) COLLATE utf8_bin NOT NULL,
   `vision` varchar(1000) COLLATE utf8_bin NOT NULL,
   `preview` varchar(1000) COLLATE utf8_bin NOT NULL,
@@ -37,8 +39,9 @@ CREATE TABLE `informacion` (
   `ciudad_provincia` varchar(100) COLLATE utf8_bin NOT NULL,
   `direccion` varchar(100) COLLATE utf8_bin NOT NULL,
   `telefono` varchar(100) COLLATE utf8_bin NOT NULL,
-  `correo` varchar(100) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `correo` varchar(100) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id_informacion`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `informacion`
@@ -53,15 +56,17 @@ INSERT INTO `informacion` (`id_informacion`, `mision`, `vision`, `preview`, `tit
 -- Estructura de tabla para la tabla `log`
 --
 
-CREATE TABLE `log` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_usuario` int(11) DEFAULT NULL,
   `ip` varchar(12) NOT NULL,
   `controlador` varchar(30) NOT NULL,
   `metodo` varchar(30) NOT NULL,
   `fecha` date NOT NULL,
-  `hora` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `hora` time NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_usuario` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=1612 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `log`
@@ -1679,7 +1684,8 @@ INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `
 (1607, 1, '::1', 'principal', 'index', '2018-08-28', '12:15:05'),
 (1608, 1, '::1', 'principal', 'index', '2018-08-28', '12:16:22'),
 (1609, 1, '::1', 'login', 'cerrar', '2018-08-28', '12:16:46'),
-(1610, NULL, '::1', 'principal', 'index', '2018-08-28', '12:16:46');
+(1610, NULL, '::1', 'principal', 'index', '2018-08-28', '12:16:46'),
+(1611, NULL, '::1', 'principal', 'index', '2018-08-28', '18:10:23');
 
 -- --------------------------------------------------------
 
@@ -1687,11 +1693,12 @@ INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `
 -- Estructura de tabla para la tabla `menu`
 --
 
-CREATE TABLE `menu` (
-  `id_menu` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `menu` (
+  `id_menu` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(50) NOT NULL,
-  `enlace` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `enlace` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_menu`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `menu`
@@ -1710,14 +1717,15 @@ INSERT INTO `menu` (`id_menu`, `titulo`, `enlace`) VALUES
 -- Estructura de tabla para la tabla `nosotros`
 --
 
-CREATE TABLE `nosotros` (
-  `id_nosotros` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `nosotros` (
+  `id_nosotros` int(11) NOT NULL AUTO_INCREMENT,
   `parrafo1` varchar(500) COLLATE utf8_bin NOT NULL,
   `parrafo2` varchar(500) COLLATE utf8_bin NOT NULL,
   `parrafo3` varchar(500) COLLATE utf8_bin NOT NULL,
   `parrafo4` varchar(500) COLLATE utf8_bin NOT NULL,
-  `parrafo5` varchar(500) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `parrafo5` varchar(500) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id_nosotros`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `nosotros`
@@ -1732,12 +1740,15 @@ INSERT INTO `nosotros` (`id_nosotros`, `parrafo1`, `parrafo2`, `parrafo3`, `parr
 -- Estructura de tabla para la tabla `permisos`
 --
 
-CREATE TABLE `permisos` (
-  `id_permisos` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `permisos` (
+  `id_permisos` int(11) NOT NULL AUTO_INCREMENT,
   `id_menu` int(11) NOT NULL,
   `id_role` int(11) NOT NULL,
-  `permiso` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `permiso` int(1) NOT NULL,
+  PRIMARY KEY (`id_permisos`),
+  KEY `id_menu` (`id_menu`,`id_role`),
+  KEY `id_role` (`id_role`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `permisos`
@@ -1762,11 +1773,12 @@ INSERT INTO `permisos` (`id_permisos`, `id_menu`, `id_role`, `permiso`) VALUES
 -- Estructura de tabla para la tabla `role`
 --
 
-CREATE TABLE `role` (
-  `id_role` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `role` (
+  `id_role` int(11) NOT NULL AUTO_INCREMENT,
   `role` varchar(50) NOT NULL,
-  `peso` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `peso` int(11) NOT NULL,
+  PRIMARY KEY (`id_role`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `role`
@@ -1782,11 +1794,12 @@ INSERT INTO `role` (`id_role`, `role`, `peso`) VALUES
 -- Estructura de tabla para la tabla `servicios`
 --
 
-CREATE TABLE `servicios` (
-  `id_servicio` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `servicios` (
+  `id_servicio` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(300) COLLATE utf8_bin NOT NULL,
-  `descripcion` varchar(2000) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `descripcion` varchar(2000) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id_servicio`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `servicios`
@@ -1812,10 +1825,11 @@ INSERT INTO `servicios` (`id_servicio`, `titulo`, `descripcion`) VALUES
 -- Estructura de tabla para la tabla `switch`
 --
 
-CREATE TABLE `switch` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `switch` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `accion` int(11) NOT NULL,
-  `fecha` date NOT NULL
+  `fecha` date NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1824,10 +1838,11 @@ CREATE TABLE `switch` (
 -- Estructura de tabla para la tabla `tipo`
 --
 
-CREATE TABLE `tipo` (
-  `codigo_tipo` int(11) NOT NULL,
-  `nombre_tipo` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `tipo` (
+  `codigo_tipo` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_tipo` varchar(100) NOT NULL,
+  PRIMARY KEY (`codigo_tipo`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `tipo`
@@ -1854,13 +1869,18 @@ INSERT INTO `tipo` (`codigo_tipo`, `nombre_tipo`) VALUES
 -- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `usuario` (
-  `id_usuario` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `id_role` int(11) NOT NULL DEFAULT '2',
   `login` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `password` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `estado` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `estado` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id_usuario`),
+  KEY `id_role_2` (`id_role`),
+  KEY `id_role_3` (`id_role`),
+  KEY `id_role_4` (`id_role`),
+  KEY `id_role_5` (`id_role`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -1869,141 +1889,6 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`id_usuario`, `id_role`, `login`, `password`, `estado`) VALUES
 (1, 1, 'admin', '53362d5ea52a28e1a960323ea19b02cb2b828026', 1),
 (2, 1, 'Gilberto', '53362d5ea52a28e1a960323ea19b02cb2b828026', 1);
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `informacion`
---
-ALTER TABLE `informacion`
-  ADD PRIMARY KEY (`id_informacion`);
-
---
--- Indices de la tabla `log`
---
-ALTER TABLE `log`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`);
-
---
--- Indices de la tabla `menu`
---
-ALTER TABLE `menu`
-  ADD PRIMARY KEY (`id_menu`);
-
---
--- Indices de la tabla `nosotros`
---
-ALTER TABLE `nosotros`
-  ADD PRIMARY KEY (`id_nosotros`);
-
---
--- Indices de la tabla `permisos`
---
-ALTER TABLE `permisos`
-  ADD PRIMARY KEY (`id_permisos`),
-  ADD KEY `id_menu` (`id_menu`,`id_role`),
-  ADD KEY `id_role` (`id_role`);
-
---
--- Indices de la tabla `role`
---
-ALTER TABLE `role`
-  ADD PRIMARY KEY (`id_role`);
-
---
--- Indices de la tabla `servicios`
---
-ALTER TABLE `servicios`
-  ADD PRIMARY KEY (`id_servicio`);
-
---
--- Indices de la tabla `switch`
---
-ALTER TABLE `switch`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `tipo`
---
-ALTER TABLE `tipo`
-  ADD PRIMARY KEY (`codigo_tipo`);
-
---
--- Indices de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id_usuario`),
-  ADD KEY `id_role_2` (`id_role`),
-  ADD KEY `id_role_3` (`id_role`),
-  ADD KEY `id_role_4` (`id_role`),
-  ADD KEY `id_role_5` (`id_role`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `informacion`
---
-ALTER TABLE `informacion`
-  MODIFY `id_informacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `log`
---
-ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1611;
-
---
--- AUTO_INCREMENT de la tabla `menu`
---
-ALTER TABLE `menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de la tabla `nosotros`
---
-ALTER TABLE `nosotros`
-  MODIFY `id_nosotros` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `permisos`
---
-ALTER TABLE `permisos`
-  MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT de la tabla `role`
---
-ALTER TABLE `role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `servicios`
---
-ALTER TABLE `servicios`
-  MODIFY `id_servicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT de la tabla `switch`
---
-ALTER TABLE `switch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `tipo`
---
-ALTER TABLE `tipo`
-  MODIFY `codigo_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
