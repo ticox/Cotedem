@@ -47,6 +47,13 @@ public function servicio_modificado($datos){
    }
 
 
+public function eliminar_servicio($datos){
+
+   echo $sql ="delete FROM servicios WHERE id_servicio= '".$datos['id']."'";
+
+     $this->_db->query($sql);
+   }
+
 
     
 public function buscar_nosotros(){

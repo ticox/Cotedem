@@ -103,9 +103,6 @@ class appController extends Controller
    }
 
 
-
-
-
      public function guardar_usuario(){
 
 
@@ -136,6 +133,15 @@ class appController extends Controller
 
 
         $this->app->guardar_servicio($_POST);
+
+
+   }
+
+
+   public function eliminar_servicio(){
+
+
+        $this->app->eliminar_servicio($_POST);
 
 
    }

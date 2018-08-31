@@ -363,6 +363,34 @@ $(document).on('click', '#servicio_modificado', function()
 
 
 
+$(document).on('click', '#eliminar_servicio', function() 
+	{
+	 		
+	 		alertify.confirm( "¿Esta realmente seguro de eliminar este servicio?", function (e) {
+			    if (e) {
+			    	$.post(base_url+'app/eliminar_servicio',{
+
+						id:$("#id_servicio").val()
+
+						},function() {
+						alertify.success('Servicio eliminado satisfactoriamente');
+						$("#modificar_servicio").empty();
+
+						$('#modificar_servicio').append("<option value=''> -> Seleccione <-</option>");
+						cargarservicios();
+						$("#mod_servicio .close").click()
+					});
+			        
+			    } else {
+			       alertify.error('Ha cancelado la operación');
+			    }
+			});
+			
+		
+	});
+
+
+
 
 
 
