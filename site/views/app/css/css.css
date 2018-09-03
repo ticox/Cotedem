@@ -158,6 +158,10 @@ body {
 	padding-top: 10% !important;
 }
 
+#div_servicio #div_usuario {
+  padding-top: 15px;
+}
+
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
     color: #fff;
     background-color: #7c0114 !important;

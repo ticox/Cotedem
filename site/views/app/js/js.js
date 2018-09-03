@@ -389,18 +389,12 @@ $(document).on('click', '#eliminar_servicio', function()
 		
 	});
 
-
-
-
-
-
-
 /*--------------------- Crear Usuarios ---------------------*/
 
 $(document).on("click", "#crear_usuarios", function(){
 
 	$('#div_usuario').show(2000); //muestro mediante id
-
+	$('#div_servicio').hide(1500); //muestro mediante id
 });
 
 
@@ -411,11 +405,7 @@ $(document).on("click", "#cancelar_crearusuario", function(){
 });
 
 
-$(document).on("click", "#cancelar_mservicio", function(){
 
-	$('#div_servicio').hide(1500); //muestro mediante id
-
-});
 
 
 
@@ -472,7 +462,14 @@ $(document).on('click', '#crear_usuario', function() {
 
 $(document).on("click", "#editar_servicio", function(){
 
-	$('#div_servicio').show(2000); //muestro mediante id
+	$('#div_servicio').show(3000); //muestro mediante id
+	$('#div_usuario').hide(1500); //muestro mediante id
+
+});
+
+$(document).on("click", "#cancelar_mservicio", function(){
+
+	$('#div_servicio').hide(1500); //muestro mediante id
 
 });
 

@@ -145,13 +145,13 @@
       <div id="logo" class="pull-left">
        <!--  <h1><a href="<?php echo BASE_URL; ?>" class="scrollto">COTEDEM</a></h1>-->
         <!--  por Si prefieres usar un logo -->
-        <a href="#intro"><img src="<?php echo BASE_URL; ?>img/logo.png" alt="" title="" /></a>
+        <a href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>img/logo.png" alt="" title="" /></a>
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <?php if (!session::get('autenticado')): ?>
-          <li class="menu-active"><a href="<?php echo BASE_URL; ?>#intro">Home</a></li>
+          <li class="menu-active"><a href="<?php echo BASE_URL; ?>#intro">Inicio</a></li>
           <li><a id="menu-scroll" href="<?php echo BASE_URL; ?>#about">Nosotros</a></li>
           <li><a id="menu-scroll" href="<?php echo BASE_URL; ?>#services">Servicios</a></li>
           <li><a id="menu-scroll" href="<?php echo BASE_URL; ?>#clientes">Clientes</a></li>
