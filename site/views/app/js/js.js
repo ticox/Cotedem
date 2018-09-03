@@ -312,6 +312,8 @@ $(document).on('click', '#guardar_servicio', function()
 
 $(document).on('change', '#modificar_servicio', function() 
 	{
+
+		$('#mod_servicio').modal('show');
 			 	$.post(base_url+'app/buscar_servicio',{
 
 						id:$("#modificar_servicio").val()
