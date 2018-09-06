@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-08-2018 a las 00:11:00
+-- Tiempo de generación: 06-09-2018 a las 22:41:04
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -21,8 +21,26 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `cotedem`
 --
-CREATE DATABASE IF NOT EXISTS `cotedem` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-USE `cotedem`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id_cliente` int(11) NOT NULL,
+  `nombre_cliente` varchar(100) COLLATE utf8_bin NOT NULL,
+  `link` varchar(100) COLLATE utf8_bin NOT NULL,
+  `nombre_imagen` varchar(500) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id_cliente`, `nombre_cliente`, `link`, `nombre_imagen`) VALUES
+(9, 'Asus', 'https://www.asus.com/', 'clienteAsus.png');
 
 -- --------------------------------------------------------
 
@@ -30,8 +48,8 @@ USE `cotedem`;
 -- Estructura de tabla para la tabla `informacion`
 --
 
-CREATE TABLE IF NOT EXISTS `informacion` (
-  `id_informacion` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `informacion` (
+  `id_informacion` int(11) NOT NULL,
   `mision` varchar(1000) COLLATE utf8_bin NOT NULL,
   `vision` varchar(1000) COLLATE utf8_bin NOT NULL,
   `preview` varchar(1000) COLLATE utf8_bin NOT NULL,
@@ -39,9 +57,8 @@ CREATE TABLE IF NOT EXISTS `informacion` (
   `ciudad_provincia` varchar(100) COLLATE utf8_bin NOT NULL,
   `direccion` varchar(100) COLLATE utf8_bin NOT NULL,
   `telefono` varchar(100) COLLATE utf8_bin NOT NULL,
-  `correo` varchar(100) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id_informacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `correo` varchar(100) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `informacion`
@@ -56,17 +73,15 @@ INSERT INTO `informacion` (`id_informacion`, `mision`, `vision`, `preview`, `tit
 -- Estructura de tabla para la tabla `log`
 --
 
-CREATE TABLE IF NOT EXISTS `log` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `log` (
+  `id` int(11) NOT NULL,
   `id_usuario` int(11) DEFAULT NULL,
   `ip` varchar(12) NOT NULL,
   `controlador` varchar(30) NOT NULL,
   `metodo` varchar(30) NOT NULL,
   `fecha` date NOT NULL,
-  `hora` time NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=1612 DEFAULT CHARSET=latin1;
+  `hora` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `log`
@@ -1685,7 +1700,442 @@ INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `
 (1608, 1, '::1', 'principal', 'index', '2018-08-28', '12:16:22'),
 (1609, 1, '::1', 'login', 'cerrar', '2018-08-28', '12:16:46'),
 (1610, NULL, '::1', 'principal', 'index', '2018-08-28', '12:16:46'),
-(1611, NULL, '::1', 'principal', 'index', '2018-08-28', '18:10:23');
+(1611, NULL, '::1', 'principal', 'index', '2018-08-28', '18:10:23'),
+(1612, NULL, '::1', 'principal', 'index', '2018-08-28', '18:26:02'),
+(1613, NULL, '::1', 'principal', 'index', '2018-08-29', '15:58:22'),
+(1614, NULL, '::1', 'principal', 'index', '2018-08-31', '12:53:45'),
+(1615, NULL, '::1', 'login', 'index', '2018-08-31', '12:53:53'),
+(1616, NULL, '::1', 'login', 'index', '2018-08-31', '12:53:59'),
+(1617, 1, '::1', 'app', 'index', '2018-08-31', '12:53:59'),
+(1618, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '12:53:59'),
+(1619, 1, '::1', 'app', 'buscar_servicio', '2018-08-31', '12:54:09'),
+(1620, 1, '::1', 'app', 'eliminar_servicio', '2018-08-31', '12:54:11'),
+(1621, 1, '::1', 'app', 'index', '2018-08-31', '12:54:19'),
+(1622, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '12:54:19'),
+(1623, 1, '::1', 'app', 'buscar_servicio', '2018-08-31', '12:54:27'),
+(1624, 1, '::1', 'app', 'eliminar_servicio', '2018-08-31', '12:54:30'),
+(1625, 1, '::1', 'app', 'index', '2018-08-31', '12:54:33'),
+(1626, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '12:54:33'),
+(1627, 1, '::1', 'app', 'index', '2018-08-31', '12:55:24'),
+(1628, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '12:55:25'),
+(1629, 1, '::1', 'app', 'index', '2018-08-31', '12:55:55'),
+(1630, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '12:55:56'),
+(1631, 1, '::1', 'app', 'buscar_servicio', '2018-08-31', '12:56:02'),
+(1632, 1, '::1', 'app', 'eliminar_servicio', '2018-08-31', '12:56:05'),
+(1633, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '12:56:05'),
+(1634, 1, '::1', 'app', 'index', '2018-08-31', '12:57:37'),
+(1635, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '12:57:38'),
+(1636, 1, '::1', 'app', 'buscar_servicio', '2018-08-31', '12:57:44'),
+(1637, 1, '::1', 'app', 'buscar_servicio', '2018-08-31', '12:57:56'),
+(1638, 1, '::1', 'app', 'buscar_servicio', '2018-08-31', '12:58:30'),
+(1639, 1, '::1', 'app', 'buscar_servicio', '2018-08-31', '12:58:34'),
+(1640, 1, '::1', 'app', 'eliminar_servicio', '2018-08-31', '12:58:39'),
+(1641, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '12:58:39'),
+(1642, 1, '::1', 'app', 'buscar_servicio', '2018-08-31', '12:58:45'),
+(1643, 1, '::1', 'app', 'eliminar_servicio', '2018-08-31', '12:58:47'),
+(1644, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '12:58:48'),
+(1645, 1, '::1', 'app', 'index', '2018-08-31', '13:06:48'),
+(1646, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '13:06:48'),
+(1647, 1, '::1', 'app', 'index', '2018-08-31', '13:07:02'),
+(1648, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '13:07:02'),
+(1649, 1, '::1', 'login', 'cerrar', '2018-08-31', '13:07:41'),
+(1650, NULL, '::1', 'principal', 'index', '2018-08-31', '13:07:41'),
+(1651, NULL, '::1', 'principal', 'index', '2018-08-31', '13:13:27'),
+(1652, NULL, '::1', 'principal', 'index', '2018-08-31', '13:13:27'),
+(1653, NULL, '::1', 'login', 'index', '2018-08-31', '13:13:34'),
+(1654, NULL, '::1', 'login', 'index', '2018-08-31', '13:13:35'),
+(1655, NULL, '::1', 'login', 'index', '2018-08-31', '13:13:36'),
+(1656, 1, '::1', 'app', 'index', '2018-08-31', '13:13:36'),
+(1657, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '13:13:36'),
+(1658, 1, '::1', 'app', 'index', '2018-08-31', '13:13:46'),
+(1659, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '13:13:46'),
+(1660, 1, '::1', 'login', 'index', '2018-08-31', '13:14:05'),
+(1661, 1, '::1', 'principal', 'index', '2018-08-31', '13:14:05'),
+(1662, 1, '::1', 'principal', 'index', '2018-08-31', '13:15:34'),
+(1663, 1, '::1', 'principal', 'index', '2018-08-31', '13:15:35'),
+(1664, NULL, '::1', 'login', 'index', '2018-08-31', '13:15:58'),
+(1665, NULL, '::1', 'login', 'index', '2018-08-31', '13:16:01'),
+(1666, 1, '::1', 'app', 'index', '2018-08-31', '13:16:01'),
+(1667, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '13:16:02'),
+(1668, 1, '::1', 'app', 'guardar_servicio', '2018-08-31', '13:16:10'),
+(1669, 1, '::1', 'app', 'index', '2018-08-31', '13:16:14'),
+(1670, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '13:16:15'),
+(1671, 1, '::1', 'principal', 'index', '2018-08-31', '13:16:19'),
+(1672, 1, '::1', 'app', 'index', '2018-08-31', '13:16:47'),
+(1673, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '13:16:47'),
+(1674, 1, '::1', 'app', 'buscar_servicio', '2018-08-31', '13:16:52'),
+(1675, 1, '::1', 'app', 'eliminar_servicio', '2018-08-31', '13:16:55'),
+(1676, 1, '::1', 'app', 'buscar_servicios', '2018-08-31', '13:16:55'),
+(1677, 1, '::1', 'principal', 'index', '2018-08-31', '13:17:11'),
+(1678, NULL, '::1', 'principal', 'index', '2018-09-03', '17:02:00'),
+(1679, NULL, '::1', 'login', 'index', '2018-09-03', '17:02:05'),
+(1680, NULL, '::1', 'login', 'index', '2018-09-03', '17:02:09'),
+(1681, 1, '::1', 'app', 'index', '2018-09-03', '17:02:09'),
+(1682, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '17:02:10'),
+(1683, 1, '::1', 'app', 'index', '2018-09-03', '17:03:21'),
+(1684, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '17:03:22'),
+(1685, NULL, '::1', 'error', 'access', '2018-09-03', '17:03:26'),
+(1686, NULL, '::1', 'error', 'access', '2018-09-03', '17:03:26'),
+(1687, NULL, '::1', 'error', 'access', '2018-09-03', '17:03:27'),
+(1688, NULL, '::1', 'error', 'access', '2018-09-03', '17:03:27'),
+(1689, NULL, '::1', 'error', 'access', '2018-09-03', '17:03:27'),
+(1690, NULL, '::1', 'error', 'access', '2018-09-03', '17:03:29'),
+(1691, NULL, '::1', 'error', 'access', '2018-09-03', '17:03:29'),
+(1692, NULL, '::1', 'login', 'index', '2018-09-03', '17:03:34'),
+(1693, NULL, '::1', 'login', 'index', '2018-09-03', '17:03:37'),
+(1694, 1, '::1', 'app', 'index', '2018-09-03', '17:03:37'),
+(1695, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '17:03:38'),
+(1696, 1, '::1', 'app', 'index', '2018-09-03', '17:04:37'),
+(1697, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '17:04:37'),
+(1698, 1, '::1', 'app', 'buscar_servicio', '2018-09-03', '17:04:55'),
+(1699, NULL, '::1', 'principal', 'index', '2018-09-03', '17:05:11'),
+(1700, NULL, '::1', 'principal', 'index', '2018-09-03', '17:05:11'),
+(1701, NULL, '::1', 'error', 'access', '2018-09-03', '17:06:57'),
+(1702, NULL, '::1', 'error', 'access', '2018-09-03', '17:06:57'),
+(1703, NULL, '::1', 'principal', 'index', '2018-09-03', '17:08:04'),
+(1704, NULL, '::1', 'principal', 'index', '2018-09-03', '17:16:21'),
+(1705, NULL, '::1', 'principal', 'index', '2018-09-03', '17:16:42'),
+(1706, NULL, '::1', 'principal', 'index', '2018-09-03', '17:19:30'),
+(1707, NULL, '::1', 'principal', 'index', '2018-09-03', '17:21:52'),
+(1708, NULL, '::1', 'principal', 'index', '2018-09-03', '17:29:11'),
+(1709, NULL, '::1', 'principal', 'index', '2018-09-03', '17:29:52'),
+(1710, NULL, '::1', 'principal', 'index', '2018-09-03', '17:30:13'),
+(1711, NULL, '::1', 'principal', 'index', '2018-09-03', '17:31:47'),
+(1712, NULL, '::1', 'principal', 'index', '2018-09-03', '17:31:49'),
+(1713, NULL, '::1', 'principal', 'index', '2018-09-03', '17:47:03'),
+(1714, NULL, '::1', 'principal', 'index', '2018-09-03', '17:48:10'),
+(1715, NULL, '::1', 'principal', 'index', '2018-09-03', '17:48:24'),
+(1716, 1, '::1', 'principal', 'index', '2018-09-03', '17:51:57'),
+(1717, NULL, '::1', 'principal', 'index', '2018-09-03', '17:52:36'),
+(1718, NULL, '::1', 'principal', 'index', '2018-09-03', '17:52:38'),
+(1719, NULL, '::1', 'principal', 'index', '2018-09-03', '17:52:45'),
+(1720, 1, '::1', 'app', 'index', '2018-09-03', '17:55:24'),
+(1721, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '17:55:25'),
+(1722, 1, '::1', 'principal', 'index', '2018-09-03', '17:55:51'),
+(1723, 1, '::1', 'app', 'index', '2018-09-03', '17:55:55'),
+(1724, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '17:55:55'),
+(1725, 1, '::1', 'app', 'index', '2018-09-03', '17:56:16'),
+(1726, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '17:56:17'),
+(1727, 1, '::1', 'app', 'index', '2018-09-03', '17:57:22'),
+(1728, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '17:57:22'),
+(1729, NULL, '::1', 'login', 'index', '2018-09-03', '17:57:33'),
+(1730, NULL, '::1', 'login', 'index', '2018-09-03', '17:57:38'),
+(1731, 1, '::1', 'app', 'index', '2018-09-03', '17:57:38'),
+(1732, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '17:57:39'),
+(1733, 1, '::1', 'app', 'index', '2018-09-03', '17:58:20'),
+(1734, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '17:58:21'),
+(1735, 1, '::1', 'app', 'index', '2018-09-03', '18:00:12'),
+(1736, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:00:12'),
+(1737, 1, '::1', 'app', 'index', '2018-09-03', '18:00:21'),
+(1738, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:00:21'),
+(1739, 1, '::1', 'app', 'index', '2018-09-03', '18:00:36'),
+(1740, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:00:36'),
+(1741, 1, '::1', 'app', 'index', '2018-09-03', '18:00:52'),
+(1742, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:00:53'),
+(1743, 1, '::1', 'app', 'index', '2018-09-03', '18:01:16'),
+(1744, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:01:16'),
+(1745, 1, '::1', 'app', 'index', '2018-09-03', '18:01:30'),
+(1746, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:01:31'),
+(1747, 1, '::1', 'app', 'index', '2018-09-03', '18:02:09'),
+(1748, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:02:10'),
+(1749, 1, '::1', 'app', 'index', '2018-09-03', '18:02:35'),
+(1750, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:02:36'),
+(1751, 1, '::1', 'app', 'index', '2018-09-03', '18:03:17'),
+(1752, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:03:17'),
+(1753, 1, '::1', 'app', 'buscar_nosotros', '2018-09-03', '18:03:22'),
+(1754, 1, '::1', 'app', 'index', '2018-09-03', '18:05:37'),
+(1755, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:05:37'),
+(1756, 1, '::1', 'app', 'index', '2018-09-03', '18:06:25'),
+(1757, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:06:25'),
+(1758, NULL, '::1', 'error', 'access', '2018-09-03', '18:07:35'),
+(1759, NULL, '::1', 'error', 'access', '2018-09-03', '18:07:35'),
+(1760, NULL, '::1', 'login', 'index', '2018-09-03', '18:07:39'),
+(1761, NULL, '::1', 'login', 'index', '2018-09-03', '18:07:43'),
+(1762, 1, '::1', 'app', 'index', '2018-09-03', '18:07:43'),
+(1763, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:07:44'),
+(1764, NULL, '::1', 'login', 'index', '2018-09-03', '18:08:23'),
+(1765, NULL, '::1', 'login', 'index', '2018-09-03', '18:08:27'),
+(1766, 1, '::1', 'app', 'index', '2018-09-03', '18:08:27'),
+(1767, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:08:27'),
+(1768, 1, '::1', 'app', 'buscar_servicio', '2018-09-03', '18:08:53'),
+(1769, 1, '::1', 'app', 'index', '2018-09-03', '18:11:32'),
+(1770, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:11:33'),
+(1771, 1, '::1', 'app', 'buscar_nosotros', '2018-09-03', '18:11:35'),
+(1772, 1, '::1', 'app', 'buscar_nosotros', '2018-09-03', '18:11:43'),
+(1773, 1, '::1', 'app', 'index', '2018-09-03', '18:13:35'),
+(1774, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:13:35'),
+(1775, 1, '::1', 'app', 'index', '2018-09-03', '18:13:56'),
+(1776, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:13:56'),
+(1777, 1, '::1', 'app', 'index', '2018-09-03', '18:14:11'),
+(1778, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:14:11'),
+(1779, 1, '::1', 'app', 'buscar_informacion', '2018-09-03', '18:14:19'),
+(1780, NULL, '::1', 'principal', 'index', '2018-09-03', '18:27:30'),
+(1781, NULL, '::1', 'login', 'index', '2018-09-03', '18:27:33'),
+(1782, NULL, '::1', 'login', 'index', '2018-09-03', '18:27:33'),
+(1783, NULL, '::1', 'login', 'index', '2018-09-03', '18:27:35'),
+(1784, 1, '::1', 'app', 'index', '2018-09-03', '18:27:35'),
+(1785, 1, '::1', 'app', 'buscar_servicios', '2018-09-03', '18:27:35'),
+(1786, 1, '::1', 'app', 'buscar_servicio', '2018-09-03', '18:27:41'),
+(1787, 1, '::1', 'app', 'buscar_servicio', '2018-09-03', '18:27:44'),
+(1788, 1, '::1', 'app', 'buscar_servicio', '2018-09-03', '18:27:46'),
+(1789, 1, '::1', 'app', 'buscar_servicio', '2018-09-03', '18:27:48'),
+(1790, NULL, '::1', 'principal', 'index', '2018-09-06', '12:13:21'),
+(1791, NULL, '::1', 'login', 'index', '2018-09-06', '12:13:25'),
+(1792, NULL, '::1', 'login', 'index', '2018-09-06', '12:13:28'),
+(1793, NULL, '::1', 'login', 'index', '2018-09-06', '12:13:31'),
+(1794, 1, '::1', 'app', 'index', '2018-09-06', '12:13:31'),
+(1795, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:13:32'),
+(1796, 1, '::1', 'app', 'index', '2018-09-06', '12:14:11'),
+(1797, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:14:11'),
+(1798, 1, '::1', 'app', 'index', '2018-09-06', '12:15:19'),
+(1799, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:15:19'),
+(1800, 1, '::1', 'app', 'index', '2018-09-06', '12:15:56'),
+(1801, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:15:57'),
+(1802, 1, '::1', 'app', 'index', '2018-09-06', '12:16:32'),
+(1803, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:16:33'),
+(1804, NULL, '::1', 'error', 'access', '2018-09-06', '12:27:39'),
+(1805, NULL, '::1', 'error', 'access', '2018-09-06', '12:27:39'),
+(1806, NULL, '::1', 'error', 'access', '2018-09-06', '12:27:40'),
+(1807, NULL, '::1', 'error', 'access', '2018-09-06', '12:27:40'),
+(1808, NULL, '::1', 'error', 'access', '2018-09-06', '12:27:40'),
+(1809, NULL, '::1', 'error', 'access', '2018-09-06', '12:27:41'),
+(1810, NULL, '::1', 'error', 'access', '2018-09-06', '12:27:41'),
+(1811, NULL, '::1', 'login', 'index', '2018-09-06', '12:27:45'),
+(1812, NULL, '::1', 'login', 'index', '2018-09-06', '12:27:49'),
+(1813, 1, '::1', 'app', 'index', '2018-09-06', '12:27:49'),
+(1814, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:27:49'),
+(1815, 1, '::1', 'app', 'index', '2018-09-06', '12:29:12'),
+(1816, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:29:12'),
+(1817, 1, '::1', 'app', 'index', '2018-09-06', '12:31:50'),
+(1818, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:31:50'),
+(1819, 1, '::1', 'app', 'index', '2018-09-06', '12:31:54'),
+(1820, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:31:54'),
+(1821, 1, '::1', 'app', 'index', '2018-09-06', '12:36:00'),
+(1822, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:36:00'),
+(1823, 1, '::1', 'app', 'index', '2018-09-06', '12:42:00'),
+(1824, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:42:01'),
+(1825, NULL, '::1', 'login', 'index', '2018-09-06', '12:42:11'),
+(1826, NULL, '::1', 'login', 'index', '2018-09-06', '12:42:15'),
+(1827, 1, '::1', 'app', 'index', '2018-09-06', '12:42:15'),
+(1828, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:42:16'),
+(1829, 1, '::1', 'app', 'index', '2018-09-06', '12:47:33'),
+(1830, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:47:33'),
+(1831, 1, '::1', 'app', 'index', '2018-09-06', '12:48:26'),
+(1832, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:48:27'),
+(1833, 1, '::1', 'app', 'index', '2018-09-06', '12:52:07'),
+(1834, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:52:07'),
+(1835, 1, '::1', 'app', 'index', '2018-09-06', '12:53:23'),
+(1836, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:53:23'),
+(1837, 1, '::1', 'app', 'index', '2018-09-06', '12:54:42'),
+(1838, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:54:43'),
+(1839, 1, '::1', 'app', 'index', '2018-09-06', '12:54:53'),
+(1840, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:54:54'),
+(1841, NULL, '::1', 'error', 'access', '2018-09-06', '12:55:04'),
+(1842, NULL, '::1', 'error', 'access', '2018-09-06', '12:55:04'),
+(1843, NULL, '::1', 'login', 'index', '2018-09-06', '12:55:08'),
+(1844, NULL, '::1', 'login', 'index', '2018-09-06', '12:55:12'),
+(1845, 1, '::1', 'app', 'index', '2018-09-06', '12:55:12'),
+(1846, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '12:55:13'),
+(1847, 1, '::1', 'app', 'index', '2018-09-06', '13:06:01'),
+(1848, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:06:02'),
+(1849, 1, '::1', 'app', 'index', '2018-09-06', '13:06:33'),
+(1850, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:06:34'),
+(1851, 1, '::1', 'app', 'index', '2018-09-06', '13:08:31'),
+(1852, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:08:31'),
+(1853, NULL, '::1', 'login', 'index', '2018-09-06', '13:08:41'),
+(1854, NULL, '::1', 'login', 'index', '2018-09-06', '13:08:45'),
+(1855, 1, '::1', 'app', 'index', '2018-09-06', '13:08:45'),
+(1856, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:08:48'),
+(1857, 1, '::1', 'app', 'index', '2018-09-06', '13:10:02'),
+(1858, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:10:03'),
+(1859, 1, '::1', 'app', 'index', '2018-09-06', '13:11:33'),
+(1860, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:11:33'),
+(1861, NULL, '::1', 'error', 'access', '2018-09-06', '13:13:37'),
+(1862, NULL, '::1', 'error', 'access', '2018-09-06', '13:13:37'),
+(1863, NULL, '::1', 'login', 'index', '2018-09-06', '13:13:40'),
+(1864, NULL, '::1', 'login', 'index', '2018-09-06', '13:13:45'),
+(1865, 1, '::1', 'app', 'index', '2018-09-06', '13:13:45'),
+(1866, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:13:45'),
+(1867, 1, '::1', 'app', 'index', '2018-09-06', '13:14:54'),
+(1868, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:14:54'),
+(1869, 1, '::1', 'app', 'index', '2018-09-06', '13:15:02'),
+(1870, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:15:02'),
+(1871, 1, '::1', 'app', 'index', '2018-09-06', '13:15:56'),
+(1872, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:15:56'),
+(1873, 1, '::1', 'app', 'index', '2018-09-06', '13:18:48'),
+(1874, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:18:48'),
+(1875, 1, '::1', 'app', 'index', '2018-09-06', '13:20:11'),
+(1876, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:20:11'),
+(1877, 1, '::1', 'app', 'index', '2018-09-06', '13:21:44'),
+(1878, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:21:44'),
+(1879, 1, '::1', 'app', 'index', '2018-09-06', '13:22:05'),
+(1880, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:22:05'),
+(1881, NULL, '::1', 'login', 'index', '2018-09-06', '13:22:16'),
+(1882, NULL, '::1', 'login', 'index', '2018-09-06', '13:22:21'),
+(1883, 1, '::1', 'app', 'index', '2018-09-06', '13:22:21'),
+(1884, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:22:21'),
+(1885, 1, '::1', 'app', 'index', '2018-09-06', '13:25:28'),
+(1886, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:25:28'),
+(1887, 1, '::1', 'app', 'index', '2018-09-06', '13:26:35'),
+(1888, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:26:36'),
+(1889, 1, '::1', 'app', 'index', '2018-09-06', '13:27:45'),
+(1890, 1, '::1', 'app', 'index', '2018-09-06', '13:27:48'),
+(1891, 1, '::1', 'app', 'index', '2018-09-06', '13:29:20'),
+(1892, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:29:21'),
+(1893, 1, '::1', 'app', 'index', '2018-09-06', '13:31:35'),
+(1894, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:31:35'),
+(1895, 1, '::1', 'app', 'index', '2018-09-06', '13:33:02'),
+(1896, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:33:02'),
+(1897, 1, '::1', 'app', 'index', '2018-09-06', '13:33:14'),
+(1898, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:33:14'),
+(1899, 1, '::1', 'app', 'index', '2018-09-06', '13:36:29'),
+(1900, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:36:29'),
+(1901, 1, '::1', 'app', 'index', '2018-09-06', '13:37:41'),
+(1902, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:37:42'),
+(1903, 1, '::1', 'app', 'index', '2018-09-06', '13:45:54'),
+(1904, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '13:45:54'),
+(1905, 1, '::1', 'app', 'index', '2018-09-06', '14:44:12'),
+(1906, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '14:44:13'),
+(1907, 1, '::1', 'app', 'buscar_servicio', '2018-09-06', '15:08:48'),
+(1908, 1, '::1', 'app', 'buscar_nosotros', '2018-09-06', '15:08:58'),
+(1909, 1, '::1', 'app', 'index', '2018-09-06', '15:11:31'),
+(1910, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:11:32'),
+(1911, 1, '::1', 'app', 'index', '2018-09-06', '15:11:33'),
+(1912, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:11:33'),
+(1913, 1, '::1', 'app', 'index', '2018-09-06', '15:11:34'),
+(1914, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:11:35'),
+(1915, 1, '::1', 'app', 'index', '2018-09-06', '15:11:35'),
+(1916, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:11:36'),
+(1917, 1, '::1', 'app', 'index', '2018-09-06', '15:11:36'),
+(1918, 1, '::1', 'app', 'index', '2018-09-06', '15:11:36'),
+(1919, 1, '::1', 'app', 'index', '2018-09-06', '15:11:36'),
+(1920, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:11:37'),
+(1921, 1, '::1', 'app', 'index', '2018-09-06', '15:11:37'),
+(1922, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:11:38'),
+(1923, 1, '::1', 'app', 'index', '2018-09-06', '15:21:18'),
+(1924, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:21:18'),
+(1925, 1, '::1', 'app', 'index', '2018-09-06', '15:26:07'),
+(1926, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:26:08'),
+(1927, 1, '::1', 'app', 'index', '2018-09-06', '15:26:54'),
+(1928, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:26:55'),
+(1929, 1, '::1', 'app', 'index', '2018-09-06', '15:27:20'),
+(1930, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:27:20'),
+(1931, 1, '::1', 'app', 'guardar_publicacion_clientes', '2018-09-06', '15:27:27'),
+(1932, 1, '::1', 'app', 'js', '2018-09-06', '15:27:27'),
+(1933, 1, '::1', 'app', 'img', '2018-09-06', '15:27:27'),
+(1934, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:27:27'),
+(1935, 1, '::1', 'principal', 'index', '2018-09-06', '15:29:04'),
+(1936, 1, '::1', 'app', 'index', '2018-09-06', '15:29:08'),
+(1937, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:29:08'),
+(1938, 1, '::1', 'app', 'guardar_publicacion_clientes', '2018-09-06', '15:29:17'),
+(1939, 1, '::1', 'app', 'js', '2018-09-06', '15:29:17'),
+(1940, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:29:18'),
+(1941, 1, '::1', 'app', 'img', '2018-09-06', '15:29:18'),
+(1942, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:30:10'),
+(1943, 1, '::1', 'app', 'index', '2018-09-06', '15:30:16'),
+(1944, 1, '::1', 'app', 'js', '2018-09-06', '15:30:16'),
+(1945, 1, '::1', 'app', 'img', '2018-09-06', '15:30:17'),
+(1946, 1, '::1', 'app', 'img', '2018-09-06', '15:30:17'),
+(1947, 1, '::1', 'app', 'img', '2018-09-06', '15:30:17'),
+(1948, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:30:17'),
+(1949, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:30:22'),
+(1950, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:32:49'),
+(1951, 1, '::1', 'app', 'index', '2018-09-06', '15:32:53'),
+(1952, 1, '::1', 'app', 'js', '2018-09-06', '15:32:53'),
+(1953, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:32:53'),
+(1954, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:33:02'),
+(1955, 1, '::1', 'app', 'index', '2018-09-06', '15:33:49'),
+(1956, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:33:49'),
+(1957, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:33:54'),
+(1958, 1, '::1', 'app', 'index', '2018-09-06', '15:34:43'),
+(1959, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:34:43'),
+(1960, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:34:51'),
+(1961, 1, '::1', 'app', 'index', '2018-09-06', '15:35:30'),
+(1962, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:35:30'),
+(1963, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:35:37'),
+(1964, 1, '::1', 'app', 'index', '2018-09-06', '15:38:12'),
+(1965, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:38:12'),
+(1966, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:38:19'),
+(1967, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:49:12'),
+(1968, 1, '::1', 'app', 'index', '2018-09-06', '15:49:12'),
+(1969, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:49:13'),
+(1970, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:49:19'),
+(1971, 1, '::1', 'app', 'index', '2018-09-06', '15:51:36'),
+(1972, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:51:36'),
+(1973, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:51:45'),
+(1974, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:52:07'),
+(1975, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:52:08'),
+(1976, 1, '::1', 'app', 'index', '2018-09-06', '15:52:09'),
+(1977, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:52:10'),
+(1978, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:52:16'),
+(1979, 1, '::1', 'app', 'index', '2018-09-06', '15:54:03'),
+(1980, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:54:04'),
+(1981, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:54:09'),
+(1982, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:54:51'),
+(1983, 1, '::1', 'app', 'index', '2018-09-06', '15:54:56'),
+(1984, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:54:56'),
+(1985, 1, '::1', 'app', 'index', '2018-09-06', '15:55:06'),
+(1986, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:55:06'),
+(1987, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:55:12'),
+(1988, 1, '::1', 'app', 'index', '2018-09-06', '15:55:12'),
+(1989, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:55:13'),
+(1990, 1, '::1', 'app', 'index', '2018-09-06', '15:57:23'),
+(1991, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:57:23'),
+(1992, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '15:58:15'),
+(1993, 1, '::1', 'app', 'index', '2018-09-06', '15:58:15'),
+(1994, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '15:58:15'),
+(1995, 1, '::1', 'app', 'guardar_publicacion_cliente', '2018-09-06', '16:02:31'),
+(1996, 1, '::1', 'app', 'index', '2018-09-06', '16:02:31'),
+(1997, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '16:02:31'),
+(1998, 1, '::1', 'app', 'index', '2018-09-06', '16:07:40'),
+(1999, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '16:07:40'),
+(2000, 1, '::1', 'app', 'index', '2018-09-06', '16:08:44'),
+(2001, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '16:08:44'),
+(2002, 1, '::1', 'app', 'guardar_publicacion_marca', '2018-09-06', '16:08:55'),
+(2003, 1, '::1', 'app', 'index', '2018-09-06', '16:08:55'),
+(2004, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '16:08:55'),
+(2005, 1, '::1', 'app', 'index', '2018-09-06', '16:09:28'),
+(2006, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '16:09:28'),
+(2007, 1, '::1', 'app', 'index', '2018-09-06', '16:12:14'),
+(2008, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '16:12:15'),
+(2009, 1, '::1', 'app', 'guardar_publicacion_marca', '2018-09-06', '16:22:13'),
+(2010, 1, '::1', 'app', 'index', '2018-09-06', '16:22:13'),
+(2011, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '16:22:14'),
+(2012, 1, '::1', 'app', 'guardar_publicacion_marca', '2018-09-06', '16:32:57'),
+(2013, 1, '::1', 'app', 'index', '2018-09-06', '16:32:57'),
+(2014, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '16:32:58'),
+(2015, 1, '::1', 'app', 'guardar_publicacion_marca', '2018-09-06', '16:33:57'),
+(2016, 1, '::1', 'app', 'index', '2018-09-06', '16:33:57'),
+(2017, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '16:33:58'),
+(2018, 1, '::1', 'app', 'index', '2018-09-06', '16:36:28'),
+(2019, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '16:36:28'),
+(2020, 1, '::1', 'app', 'guardar_publicacion_marca', '2018-09-06', '16:36:41'),
+(2021, 1, '::1', 'app', 'index', '2018-09-06', '16:36:41'),
+(2022, 1, '::1', 'app', 'buscar_servicios', '2018-09-06', '16:36:41');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `marcas`
+--
+
+CREATE TABLE `marcas` (
+  `id_marcas` int(11) NOT NULL,
+  `nombre_marca` varchar(200) COLLATE utf8_bin NOT NULL,
+  `link` varchar(200) COLLATE utf8_bin NOT NULL,
+  `nombre_imagen` varchar(500) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `marcas`
+--
+
+INSERT INTO `marcas` (`id_marcas`, `nombre_marca`, `link`, `nombre_imagen`) VALUES
+(1, '0', '0', 'clientedell.png'),
+(2, '', '', 'marca-2000px-Samsung_Logo.svg.png'),
+(3, '', '', 'marca-5a1ac46ef65d84088faf132c.png'),
+(4, '', '', 'marca-MAC.png'),
+(5, 'MAC', '', 'marca-MAC.png');
 
 -- --------------------------------------------------------
 
@@ -1693,12 +2143,11 @@ INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `
 -- Estructura de tabla para la tabla `menu`
 --
 
-CREATE TABLE IF NOT EXISTS `menu` (
-  `id_menu` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `menu` (
+  `id_menu` int(11) NOT NULL,
   `titulo` varchar(50) NOT NULL,
-  `enlace` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_menu`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `enlace` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `menu`
@@ -1717,15 +2166,14 @@ INSERT INTO `menu` (`id_menu`, `titulo`, `enlace`) VALUES
 -- Estructura de tabla para la tabla `nosotros`
 --
 
-CREATE TABLE IF NOT EXISTS `nosotros` (
-  `id_nosotros` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `nosotros` (
+  `id_nosotros` int(11) NOT NULL,
   `parrafo1` varchar(500) COLLATE utf8_bin NOT NULL,
   `parrafo2` varchar(500) COLLATE utf8_bin NOT NULL,
   `parrafo3` varchar(500) COLLATE utf8_bin NOT NULL,
   `parrafo4` varchar(500) COLLATE utf8_bin NOT NULL,
-  `parrafo5` varchar(500) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id_nosotros`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `parrafo5` varchar(500) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `nosotros`
@@ -1740,15 +2188,12 @@ INSERT INTO `nosotros` (`id_nosotros`, `parrafo1`, `parrafo2`, `parrafo3`, `parr
 -- Estructura de tabla para la tabla `permisos`
 --
 
-CREATE TABLE IF NOT EXISTS `permisos` (
-  `id_permisos` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `permisos` (
+  `id_permisos` int(11) NOT NULL,
   `id_menu` int(11) NOT NULL,
   `id_role` int(11) NOT NULL,
-  `permiso` int(1) NOT NULL,
-  PRIMARY KEY (`id_permisos`),
-  KEY `id_menu` (`id_menu`,`id_role`),
-  KEY `id_role` (`id_role`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  `permiso` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `permisos`
@@ -1773,12 +2218,11 @@ INSERT INTO `permisos` (`id_permisos`, `id_menu`, `id_role`, `permiso`) VALUES
 -- Estructura de tabla para la tabla `role`
 --
 
-CREATE TABLE IF NOT EXISTS `role` (
-  `id_role` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `role` (
+  `id_role` int(11) NOT NULL,
   `role` varchar(50) NOT NULL,
-  `peso` int(11) NOT NULL,
-  PRIMARY KEY (`id_role`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `peso` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `role`
@@ -1794,12 +2238,11 @@ INSERT INTO `role` (`id_role`, `role`, `peso`) VALUES
 -- Estructura de tabla para la tabla `servicios`
 --
 
-CREATE TABLE IF NOT EXISTS `servicios` (
-  `id_servicio` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `servicios` (
+  `id_servicio` int(11) NOT NULL,
   `titulo` varchar(300) COLLATE utf8_bin NOT NULL,
-  `descripcion` varchar(2000) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id_servicio`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `descripcion` varchar(2000) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `servicios`
@@ -1814,10 +2257,7 @@ INSERT INTO `servicios` (`id_servicio`, `titulo`, `descripcion`) VALUES
 (6, 'Cámaras de Seguridad (CCTV e IP)', 'En COTEDEM contamos con sistemas que se ajustan a diversas necesidades. Todas las soluciones de video vigilancia pueden ser monitoreadas desde una PC o dispositivo móvil. Capaces de mostrar imágenes de alta calidad, facilitando el control y vigilancia, de forma económica y confiable. Todas las soluciones cuentan con grabación y almacenamiento de videos.'),
 (7, 'Servicios de Mantenimiento Preventivo y Correctivo de Equipos de Cómputo. ', 'Brindamos servicios de soporte y mantenimiento, que van desde mantenimientos preventivos a la infraestructura tecnológica del cliente hasta mantenimientos correctivos. Nuestro equipo está formado por técnicos especializados que ofrecen mantenimiento a los ordenadores, servidores y sistemas, minimizando el tiempo de inactividad y maximizar la productividad para que estos funcionen de forma correcta.'),
 (8, 'Soluciones Wi-Fi', 'Nos especializamos en implementar infraestructuras de conectividad WIFI a todo tipo de empresas, con equipamientos líder en soluciones WiFi capaces de soportar aplicaciones de datos, voz y video. Nuestras soluciones WiFi incluyen enlaces inalámbricos, siempre con el objetivo de anular las distancias en las comunicaciones entre diferentes localizaciones, usuarios y/o dispositivos, y de más rápida instalación que las infraestructuras cableadas.'),
-(9, 'Administración de Redes', 'La disponibilidad de su red es clave para su negocio, contamos con una solución completa que le ayudarán a administrar su red y mantenerla en funcionamiento, evitando largas interrupciones de los servicios. Realizamos labores preventivas de los sistemas, actualizaciones periódicas e instalación de parches de seguridad evitando posibles vulnerabilidades de los sistemas. También Realizamos procesos de copias de seguridad tanto locales como remotas para evitar la pérdida de datos en caso de catástrofe. Simplemente garantizamos la funcionabilidad de su red.'),
-(10, 'Nuevo servicio de prueba', 'Este servicio de prueba es para probar si esta funcionando el agregar servicio. '),
-(11, 'servicio de prueba 2', 'Este servicio de prueba2 es para probar si esta funcionando el agregar servicio. '),
-(12, 'servicio de prueba3', ' Este servicio de prueba3 es para probar si esta funcionando el agregar servicio. ');
+(9, 'Administración de Redes', 'La disponibilidad de su red es clave para su negocio, contamos con una solución completa que le ayudarán a administrar su red y mantenerla en funcionamiento, evitando largas interrupciones de los servicios. Realizamos labores preventivas de los sistemas, actualizaciones periódicas e instalación de parches de seguridad evitando posibles vulnerabilidades de los sistemas. También Realizamos procesos de copias de seguridad tanto locales como remotas para evitar la pérdida de datos en caso de catástrofe. Simplemente garantizamos la funcionabilidad de su red.');
 
 -- --------------------------------------------------------
 
@@ -1825,11 +2265,10 @@ INSERT INTO `servicios` (`id_servicio`, `titulo`, `descripcion`) VALUES
 -- Estructura de tabla para la tabla `switch`
 --
 
-CREATE TABLE IF NOT EXISTS `switch` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `switch` (
+  `id` int(11) NOT NULL,
   `accion` int(11) NOT NULL,
-  `fecha` date NOT NULL,
-  PRIMARY KEY (`id`)
+  `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1838,11 +2277,10 @@ CREATE TABLE IF NOT EXISTS `switch` (
 -- Estructura de tabla para la tabla `tipo`
 --
 
-CREATE TABLE IF NOT EXISTS `tipo` (
-  `codigo_tipo` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_tipo` varchar(100) NOT NULL,
-  PRIMARY KEY (`codigo_tipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+CREATE TABLE `tipo` (
+  `codigo_tipo` int(11) NOT NULL,
+  `nombre_tipo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `tipo`
@@ -1869,18 +2307,13 @@ INSERT INTO `tipo` (`codigo_tipo`, `nombre_tipo`) VALUES
 -- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
   `id_role` int(11) NOT NULL DEFAULT '2',
   `login` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `password` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `estado` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id_usuario`),
-  KEY `id_role_2` (`id_role`),
-  KEY `id_role_3` (`id_role`),
-  KEY `id_role_4` (`id_role`),
-  KEY `id_role_5` (`id_role`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `estado` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -1889,6 +2322,165 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 INSERT INTO `usuario` (`id_usuario`, `id_role`, `login`, `password`, `estado`) VALUES
 (1, 1, 'admin', '53362d5ea52a28e1a960323ea19b02cb2b828026', 1),
 (2, 1, 'Gilberto', '53362d5ea52a28e1a960323ea19b02cb2b828026', 1);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id_cliente`);
+
+--
+-- Indices de la tabla `informacion`
+--
+ALTER TABLE `informacion`
+  ADD PRIMARY KEY (`id_informacion`);
+
+--
+-- Indices de la tabla `log`
+--
+ALTER TABLE `log`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_usuario` (`id_usuario`);
+
+--
+-- Indices de la tabla `marcas`
+--
+ALTER TABLE `marcas`
+  ADD PRIMARY KEY (`id_marcas`);
+
+--
+-- Indices de la tabla `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id_menu`);
+
+--
+-- Indices de la tabla `nosotros`
+--
+ALTER TABLE `nosotros`
+  ADD PRIMARY KEY (`id_nosotros`);
+
+--
+-- Indices de la tabla `permisos`
+--
+ALTER TABLE `permisos`
+  ADD PRIMARY KEY (`id_permisos`),
+  ADD KEY `id_menu` (`id_menu`,`id_role`),
+  ADD KEY `id_role` (`id_role`);
+
+--
+-- Indices de la tabla `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`id_role`);
+
+--
+-- Indices de la tabla `servicios`
+--
+ALTER TABLE `servicios`
+  ADD PRIMARY KEY (`id_servicio`);
+
+--
+-- Indices de la tabla `switch`
+--
+ALTER TABLE `switch`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `tipo`
+--
+ALTER TABLE `tipo`
+  ADD PRIMARY KEY (`codigo_tipo`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD KEY `id_role_2` (`id_role`),
+  ADD KEY `id_role_3` (`id_role`),
+  ADD KEY `id_role_4` (`id_role`),
+  ADD KEY `id_role_5` (`id_role`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `informacion`
+--
+ALTER TABLE `informacion`
+  MODIFY `id_informacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `log`
+--
+ALTER TABLE `log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2023;
+
+--
+-- AUTO_INCREMENT de la tabla `marcas`
+--
+ALTER TABLE `marcas`
+  MODIFY `id_marcas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `nosotros`
+--
+ALTER TABLE `nosotros`
+  MODIFY `id_nosotros` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `permisos`
+--
+ALTER TABLE `permisos`
+  MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `role`
+--
+ALTER TABLE `role`
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `servicios`
+--
+ALTER TABLE `servicios`
+  MODIFY `id_servicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `switch`
+--
+ALTER TABLE `switch`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tipo`
+--
+ALTER TABLE `tipo`
+  MODIFY `codigo_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
