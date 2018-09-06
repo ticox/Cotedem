@@ -2,13 +2,9 @@
 
 
 
-//define('BASE_URL', 'http://192.168.0.50/');
+
 define('BASE_URL', 'http://localhost/cotedem/');
-//define('BASE_URL', 'http://192.168.0.101/cumanax/');
-//define('BASE_URL', 'http://americas89.no-ip.info:8080/didactico/');
-//define('DEFAULT_CONTROLLER', 'faceblocked');
 define('DEFAULT_CONTROLLER', 'principal');
-//define('DEFAULT_LAYOUT', 'layout_legna');
 define('DEFAULT_LAYOUT', 'cotedem');
 define('APP_NAME', 'COTEDEM');
 define('APP_SLOGAN', 'COTEDEM');
