@@ -171,6 +171,7 @@
                 <?php if (session::get('autenticado')): ?>
                         <li class="menu-has-children"><a href="javascript:null()">Bienvenido, <?php echo session::get('usuario'); ?></a>
                       <ul>
+                        <li><a href="<?php echo BASE_URL; ?>app">Administrar</a></li>
                         <li><a href="<?php echo BASE_URL; ?>recuperar/cambiar">Cambiar Clave</a></li>
                         <li><a href="<?php echo BASE_URL; ?>login/cerrar">Cerrar Sessión</a></li>
                       </ul>

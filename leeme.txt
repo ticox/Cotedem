@@ -1,6 +1,6 @@
-framefork tecnoservi
+Framefork  TecnoServi S.R.L
 
-vistas:
+Vistas:
 
 
 	* las vista en en ft se manejan de manera muy didactica y rese utiliza php para impresion de datos dinamicos .

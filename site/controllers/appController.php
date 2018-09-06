@@ -41,15 +41,18 @@ class appController extends Controller
         	        		
         	        		}
         	}
-             $this->_view->bloqueo=$this->app->bloqueo();
-            $this->_view->bloqueo_datos=$this->app->bloqueo_datos();
-        	$this->_view->cont=$this->app->all_cont();
-            $this->_view->logs=$this->app->all_logs();
-        	$this->_view->menus=$menu;
-			$this->_view->rol=$role;
-			$this->_view->matris=$matris;
-			$this->_view->renderizar('index');		
+                    $this->_view->bloqueo=$this->app->bloqueo();
+                    $this->_view->bloqueo_datos=$this->app->bloqueo_datos();
+                    $this->_view->cont=$this->app->all_cont();
+                    $this->_view->logs=$this->app->all_logs();
+                    $this->_view->menus=$menu;
+              			$this->_view->rol=$role;
+              			$this->_view->matris=$matris;
+              			$this->_view->renderizar('index');		
 	}
+
+
+  
  public function guardar_publicacion_cliente()
         {
                 $this->app->guardar_publicacion_cliente($_POST,$_FILES);
@@ -129,8 +132,6 @@ class appController extends Controller
 
 
         $this->app->guardar_nosotros($_POST);
-
-
    }
 
 
@@ -138,7 +139,6 @@ class appController extends Controller
 
 
         $this->app->guardar_servicio($_POST);
-
 
    }
 
@@ -148,18 +148,12 @@ class appController extends Controller
 
         $this->app->eliminar_servicio($_POST);
 
-
    }
-
-
-
-
 
    public function buscar_informacion(){
 
 
     echo json_encode($this->app->buscar_informacion());
-
 
    }
 
@@ -168,8 +162,6 @@ class appController extends Controller
 
 
         $this->app->guardar_mision($_POST);
-
-
    }
 
 
@@ -177,7 +169,6 @@ class appController extends Controller
 
 
         $this->app->guardar_vision($_POST);
-
 
    }
 
@@ -187,7 +178,6 @@ class appController extends Controller
 
         $this->app->guardar_preview($_POST);
 
-
    }
 
 
@@ -196,8 +186,14 @@ class appController extends Controller
 
         $this->app->guardar_titulo($_POST);
 
-
    }
+
+
+
+
+   /*-----------------------otras cosas------------------------*/
+
+
     function updonw(){
      $objeto=$this->loadModel('app');
        

@@ -47,8 +47,6 @@ public function guardar_publicacion_cliente($datos,$fotos)
         $this->_db->query($sql);
    }
 
-
-
  public function guardar_servicio($datos){
 
  $sql="INSERT INTO servicios values ('','".$datos['titulo']."' ,'".$datos['descripcion']."')";
