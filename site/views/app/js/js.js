@@ -4,6 +4,80 @@ $(document).ready(function(){
 	var cargar_servicios;
 
 
+function archivo(input)
+{
+  $("div#prevista").remove();
+  $('#list').addClass('active');
+  reader=Array();
+  for (var i = 0; i < input.files.length ;  i++)
+  {
+    reader[i] = new FileReader();
+    reader[i].numero= i;
+    reader[i].onloadstart= function(){
+
+      $('#list').after('<div id="cargarr'+this.numero+'" class="col-xs-6 col-sm-4 col-md-12 col-lg-2 ">img ==='+this.numero+'</div>' );
+
+    }
+    reader[i].onloadend= function(){
+
+      $('div#cargarr'+this.numero).remove();
+    }
+    reader[i].onload= function()
+    {
+      $('#list').after('<div id="prevista" class="col-md-12 prviuw"> <center><img class="" width="234px" height="135px" src="'+this.result+' " > </center></div>' );
+    }
+    reader[i].readAsDataURL(input.files[i]);
+  }
+
+  console.log(reader);
+  
+}
+
+$('#files').change(function()
+{
+  archivo(this);
+
+  $('#guardar_clientes').removeAttr("disabled");
+});
+
+
+function archivo2(input)
+{
+  $("div#prevista2").remove();
+  $('#list2').addClass('active');
+  reader=Array();
+  for (var i = 0; i < input.files.length ;  i++)
+  {
+    reader[i] = new FileReader();
+    reader[i].numero= i;
+    reader[i].onloadstart= function(){
+
+      $('#list2').after('<div id="cargarrr'+this.numero+'" class="col-xs-6 col-sm-4 col-md-12 col-lg-2 ">img ==='+this.numero+'</div>' );
+
+    }
+    reader[i].onloadend= function(){
+
+      $('div#cargarrr'+this.numero).remove();
+    }
+    reader[i].onload= function()
+    {
+      $('#list2').after('<div id="prevista2" class="col-md-12 prviuw"> <center><img class="" width="234px" height="135px" src="'+this.result+' " > </center></div>' );
+    }
+    reader[i].readAsDataURL(input.files[i]);
+  }
+
+  console.log(reader);
+  
+}
+
+$('#files2').change(function()
+{
+  archivo2(this);
+  $('#guardar_marcas').removeAttr("disabled");
+});
+
+
+
 function cargarservicios(){
 
 $.post(base_url+'app/buscar_servicios',function(datos) {
@@ -25,8 +99,9 @@ $( "#fecha_activo" ).datepicker({
 });
 
 $('#div_usuario').hide(); //muestro mediante id
-
 $('#div_servicio').hide();
+$('#div_clientes').hide();
+$('#div_marcas').hide();
 
 
 
@@ -391,12 +466,47 @@ $(document).on('click', '#eliminar_servicio', function()
 		
 	});
 
+/*--------------------- Agregar Clientes ---------------------*/
+$(document).on("click", "#agregar_clientes", function(){
+
+	$('#div_clientes').show(2000); //muestro mediante id
+	$('#div_marcas').hide(1500); //muestro mediante id
+	$('#div_usuario').hide(1500); //muestro mediante id
+	$('#div_servicio').hide(1500); //muestro mediante id
+});
+
+$(document).on("click", "#cancelar_aclientes", function(){
+
+	$('#div_clientes').hide(1500); //muestro mediante id
+
+});
+
+
+/*--------------------- Agregar Marcas ---------------------*/
+$(document).on("click", "#agregar_marcas", function(){
+
+	$('#div_marcas').show(2000); //muestro mediante id
+	$('#div_clientes').hide(1500); //muestro mediante id
+	$('#div_usuario').hide(1500); //muestro mediante id
+	$('#div_servicio').hide(1500); //muestro mediante id
+});
+
+$(document).on("click", "#cancelar_amarcas", function(){
+
+	$('#div_marcas').hide(1500); //muestro mediante id
+
+});
+
+
 /*--------------------- Crear Usuarios ---------------------*/
 
 $(document).on("click", "#crear_usuarios", function(){
 
 	$('#div_usuario').show(2000); //muestro mediante id
 	$('#div_servicio').hide(1500); //muestro mediante id
+	$('#div_clientes').hide(1500); //muestro mediante id
+	$('#div_marcas').hide(1500); //muestro mediante id
+
 });
 
 
@@ -466,6 +576,8 @@ $(document).on("click", "#editar_servicio", function(){
 
 	$('#div_servicio').show(3000); //muestro mediante id
 	$('#div_usuario').hide(1500); //muestro mediante id
+	$('#div_clientes').hide(1500); //muestro mediante id
+	$('#div_marcas').hide(1500); //muestro mediante id
 
 });
 

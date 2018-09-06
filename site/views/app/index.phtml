@@ -15,7 +15,7 @@
             <ul id="menu-content" class="menu-content collapse out">
                 <li>
                   <a href="#">
-                  <i class="fa fa-dashboard fa-lg"></i> Home
+                  <i class="fa fa-dashboard fa-lg"></i> Inicio
                   </a>
                 </li>
 
@@ -40,6 +40,14 @@
 
                 <li >
                   <a data-toggle="modal" data-target="#servicio"> <i class="fa fa-car fa-lg"></i> Agregar Nuevo Servicio </a>
+                </li>
+
+                <li >
+                  <a id="agregar_clientes"> <i class="fa fa-car fa-lg"></i> Agregar Clientes </a>
+                </li>
+
+                <li >
+                  <a id="agregar_marcas"> <i class="fa fa-car fa-lg"></i> Agregar Marcas </a>
                 </li>
 
                  <li>
@@ -100,6 +108,65 @@
       <div class="form-group ">
       <center><button id="cancelar_mservicio" type="button" class="btn btn-primary btn-sm">Cancelar</button> </center>
       </div>
+</div>
+
+<div class="col-md-6 col-md-offset-3" id="div_clientes">
+<div class="col-md-12"><center> <h4> Agregar Clientes </h4> </center></div>
+<form id="form_agregar_cliente" enctype="multipart/form-data" method="post" action="<?php echo BASE_URL ?>app/guardar_publicacion_cliente" >    
+    <div class="form-group">
+  
+        <label class=" control-label">Nombre del Cliente</label>
+        <input type="text" type="text" class="form-control" id="nombre_cliente" name="nombre_cliente" >
+    </div>
+
+    <div class="form-group">
+  
+        <label class=" control-label">Link del Cliente</label>
+        <input type="text" type="text" class="form-control" id="linkc" name="linkc" >
+    </div>
+    <div class="form-group">
+  
+        <label class=" control-label">Seleccionar la Imagen</label>
+        <input  type="file" id="files" name="foto[]">
+    </div>
+    <div class="row">
+        <div id="list" class="col-md-12 titulo-img"><center> <h4> Previsualización </h4> </center></div>
+    </div>
+            
+
+          
+      <div class="form-group ">
+      <center><button id="guardar_clientes" type="submit" class="btn btn-primary btn-sm" disabled>Guardar</button> <button id="cancelar_aclientes" type="button" class="btn btn-primary btn-sm">Cancelar</button> </center>
+      </div>
+    </form>
+</div>
+
+
+
+
+<div class="col-md-6 col-md-offset-3" id="div_marcas">
+<div class="col-md-12"><center> <h4> Agregar Marcas </h4> </center></div>
+    <form id="form_agregar_cliente" enctype="multipart/form-data" method="post" action="<?php echo BASE_URL ?>app/guardar_publicacion_marca" > 
+      <div class="form-group">
+  
+        <label class=" control-label">Nombre de la marca</label>
+        <input type="text" type="text" class="form-control" id="nombre_marca" name="nombre_marca" >
+    </div>
+
+    <div class="form-group">
+  
+        <label class=" control-label">Seleccionar la Imagen</label>
+        <input  type="file" id="files2" name="foto[]">
+    </div>
+    <div class="row">
+        <div id="list2" class="col-md-12 titulo-img"><center> <h4> Previsualización </h4> </center></div>
+    </div>
+          
+      <div class="form-group ">
+      <center><button id="guardar_marcas" type="submit" class="btn btn-primary btn-sm" disabled>Guardar</button> <button id="cancelar_amarcas" type="button" class="btn btn-primary btn-sm">Cancelar</button> </center>
+      </div>
+
+    </form>
 </div>
 
 </div>

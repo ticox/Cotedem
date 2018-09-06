@@ -10,8 +10,8 @@ class appController extends Controller
     public function __construct() {
 
         Session::acceso();
-
         parent::__construct();
+      $this->getLibrary('simpleimage');
       $this->app=$this->loadModel('app');
 		
     }
@@ -20,8 +20,8 @@ class appController extends Controller
     {
 
  
-			$this->_view->setJs(array('js'));
-			$this->_view->setCss(array('css'));
+			$this->_view->setJs(array('js','etheme','ftheme','fileinput','sortable'));
+			$this->_view->setCss(array('css','fileinput','theme'));
         	$this->_view->titulo = 'menus';
 
         	$menu=$this->app->traer_menus();
@@ -40,16 +40,7 @@ class appController extends Controller
         	        		}
         	        		
         	        		}
-        		
-        		
-
-        	
-
         	}
-
-
-
-
              $this->_view->bloqueo=$this->app->bloqueo();
             $this->_view->bloqueo_datos=$this->app->bloqueo_datos();
         	$this->_view->cont=$this->app->all_cont();
@@ -59,9 +50,23 @@ class appController extends Controller
 			$this->_view->matris=$matris;
 			$this->_view->renderizar('index');		
 	}
+ public function guardar_publicacion_cliente()
+        {
+                $this->app->guardar_publicacion_cliente($_POST,$_FILES);
+               
+                $this->redireccionar('app');
 
+        }
 
-  
+         public function guardar_publicacion_marca()
+        {
+
+                $this->app->guardar_publicacion_marca($_POST,$_FILES);
+               
+                $this->redireccionar('app');
+
+        }
+
     function permisos_ch(){
 
 
@@ -193,15 +198,6 @@ class appController extends Controller
 
 
    }
-
-
-
-
-
-
-
-
-    
     function updonw(){
      $objeto=$this->loadModel('app');
        

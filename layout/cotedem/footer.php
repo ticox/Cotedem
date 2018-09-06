@@ -143,6 +143,7 @@
 <script src="<?php echo BASE_URL; ?>public/js/modalEffects.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/jquery-ui.js" type="text/javascript"></script>
+
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
 

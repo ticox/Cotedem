@@ -6,6 +6,18 @@
 	color: #FFF;
 }
 
+#prevista {
+  background: #FFF;
+  border-radius: 50px;
+  margin-bottom: 15px;
+}
+
+#prevista2 {
+  background: #FFF;
+  border-radius: 50px;
+  margin-bottom: 15px;
+}
+
 .nav-side-menu {
   overflow: auto;
   font-family: verdana;

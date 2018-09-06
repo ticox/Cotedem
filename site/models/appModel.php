@@ -7,6 +7,40 @@ class appModel extends Model
     }
 
 
+public function guardar_publicacion_cliente($datos,$fotos)
+      {    
+
+                
+                  $target_path = "img/prueba/";
+                  $nombre='cliente-'.$fotos['foto']['name'][0];
+                  $target_path = $target_path .$nombre;
+                  $sql="insert into clientes values ('','".$datos['nombre_cliente']."','".$datos['link']."','".$nombre."')";
+                  $this->_db->query($sql);
+                  move_uploaded_file($fotos['foto']['tmp_name'][0], $target_path); 
+                  $obj_img = new SimpleImage();
+                  $obj_img->load($target_path);
+                  $obj_img->resize(234,135);
+                  $obj_img->save($target_path);
+
+      }
+
+
+      public function guardar_publicacion_marca($datos,$fotos)
+      {    
+                
+                  $target_path = "img/prueba/";
+                  $nombre='marca-'.$fotos['foto']['name'][0];
+                  $target_path = $target_path .$nombre;
+                  $sql="insert into marcas values ('','".$datos['nombre_marca']."','','".$nombre."')";
+                  $this->_db->query($sql);
+                  move_uploaded_file($fotos['foto']['tmp_name'][0], $target_path); 
+                  $obj_img = new SimpleImage();
+                  $obj_img->load($target_path);
+                  $obj_img->resize(234,135);
+                  $obj_img->save($target_path);
+
+      }
+
  public function guardar_usuario($datos){
 
  $sql="INSERT INTO usuario values ('','1','".$datos['usuario']."' ,'" . Hash::getHash('sha1', $datos['clave'], HASH_KEY) ."','1')";
